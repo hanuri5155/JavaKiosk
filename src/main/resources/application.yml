@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+# db 연동 설정
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_member?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: kioskroot
+  thymeleaf:
+    cache: false
+
+# spring data jpa 설정
+jpa:
+  hibernate:
+    ddl-auto: create
+  properties:
+    hibernate:
+      format_sql: true
+      default_batch_fetch_size: 100
+  show-sql: true
+  database: mysql
