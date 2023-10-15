@@ -5,9 +5,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db_member?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: kioskroot
+    url: <YOUR_DB_URL>
+    username: <YOUR_DB_USERNAME>
+    password: <YOUR_DB_PASSWORD>
   thymeleaf:
     cache: false
 
