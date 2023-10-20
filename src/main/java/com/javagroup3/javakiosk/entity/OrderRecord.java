@@ -16,7 +16,7 @@ public class OrderRecord {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Member member;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
