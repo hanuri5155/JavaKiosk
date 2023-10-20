@@ -1,8 +1,13 @@
 package com.javagroup3.javakiosk.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@RestController
-public class MemberController { // 회원 가입 및 로그인 등 회원 쪽 컨트롤러
-
+@Controller
+public class MemberController {
+    // 메인 페이지 요청
+    @GetMapping("/login") // 메인 페이지 주소
+    public String index(){
+        return "login";
+    }
 }
