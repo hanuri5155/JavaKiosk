@@ -11,13 +11,13 @@ spring:
   thymeleaf:
     cache: false
 
-# spring data jpa 설정
-jpa:
-  hibernate:
-    ddl-auto: create
-  properties:
+  # spring data jpa 설정
+  jpa:
     hibernate:
-      format_sql: true
-      default_batch_fetch_size: 100
-  show-sql: true
-  database: mysql
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+    show-sql: true
+    database: mysql
