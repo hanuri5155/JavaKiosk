@@ -3,8 +3,6 @@ package com.javagroup3.javakiosk.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Entity
 @Table(name = "product")
