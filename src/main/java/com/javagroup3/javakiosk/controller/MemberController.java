@@ -24,7 +24,6 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping("/login") // 로그인
-    //public String loginForm(@ModelAttribute("loginForm") LoginFormDTO form) {return "members/login";}
     public String MemberForm(@ModelAttribute("MemberForm") MemberDTO memberDTO) {return "members/login";}
 
     @PostMapping("/login")
@@ -35,7 +34,6 @@ public class MemberController {
             return "members/login";
         }*/
 
-        //Member loginMember = memberService.login(form.getNickname(), form.getPassword());
         MemberDTO loginMember = memberService.login(memberDTO);
 
         if (loginMember == null) { // 로그인 실패
@@ -46,7 +44,7 @@ public class MemberController {
             // 로그인 성공
             session.setAttribute("nickname", loginMember.getNickname());
             System.out.println("로그인 성공");
-            return "Order";
+            return "order";
             //return "redirect:/";
         }
     }
@@ -67,7 +65,6 @@ public class MemberController {
         if (bindingResult.hasErrors()) {
             return "members/joinMember";
         }
-
         memberRepository.save(Member.toEntity(memberDTO));
         return "redirect:/";
     }

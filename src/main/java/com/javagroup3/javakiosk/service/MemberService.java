@@ -16,12 +16,6 @@ public class MemberService {
     /**
      * @return null 로그인 실패
      */
-    /*public Member login(String nickname, String password) {
-        return memberRepository.findById(nickname)
-                .filter(m -> m.getPassword().equals(password))
-                .orElse(null);
-    }*/
-
     public MemberDTO login(MemberDTO memberDTO){
         /*
         1. 회원이 입력한 ID(nickname)로 DB에서 조회
