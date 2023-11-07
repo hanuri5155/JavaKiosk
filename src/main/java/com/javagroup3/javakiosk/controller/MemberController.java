@@ -5,7 +5,6 @@ import com.javagroup3.javakiosk.dto.MemberDTO;
 import com.javagroup3.javakiosk.entity.Member;
 import com.javagroup3.javakiosk.repository.MemberRepository;
 import com.javagroup3.javakiosk.service.MemberService;
-import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import jakarta.servlet.http.HttpSession;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/members")
@@ -22,6 +21,7 @@ public class MemberController {
 
     private final MemberRepository memberRepository;
     private final MemberService memberService;
+
 
     @GetMapping("/login") // 로그인
     public String MemberForm(@ModelAttribute("MemberForm") MemberDTO memberDTO) {return "members/login";}
@@ -50,6 +50,29 @@ public class MemberController {
     }
 
     @GetMapping("/add") // 회원가입
+=======
+    @GetMapping("/login")
+    public String loginForm(@ModelAttribute("loginForm") LoginFormDTO form) {
+        return "members/login";
+    }
+
+    @PostMapping("/login")
+    public String login(@Valid @ModelAttribute("loginForm") LoginFormDTO form, BindingResult
+            bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "members/login";
+        }
+
+        Member loginMember = memberService.login(form.getNickname(), form.getPassword());
+
+        if (loginMember == null) {
+            bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
+            return "members/login";
+        }
+        return "redirect:/";
+    }
+
+    @GetMapping("/add")
     // @ModelAttribute 어노테이션으로 member 를 지정하면 타임리프와 같은 템플릿 엔진에서
     // 해당 이름으로 Member 객체를 참조할 수 있습니다.
 

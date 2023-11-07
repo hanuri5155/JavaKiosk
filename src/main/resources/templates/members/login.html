@@ -13,7 +13,6 @@
     <h4>로그인 하세요</h4>
 
     <form action="" th:action th:object="${MemberForm}" method="post">
-    <!--<form action="" th:action th:object="${MemberDTO}" method="post">-->
         <div th:if="${#fields.hasGlobalErrors()}">
             <p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${err}">전체 오류 메시지</p>
         </div>
@@ -35,7 +34,6 @@
         <div>
             <div>
                 <input type="submit" value="로그인">
-                <!--<button type="submit">로그인</button>-->
             </div>
         </div>
     </form>
