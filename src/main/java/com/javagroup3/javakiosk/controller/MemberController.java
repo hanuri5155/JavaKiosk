@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import jakarta.servlet.http.HttpSession;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/members")
@@ -22,6 +22,35 @@ public class MemberController {
     private final MemberRepository memberRepository;
     private final MemberService memberService;
 
+
+    @GetMapping("/login") // 로그인
+    public String MemberForm(@ModelAttribute("MemberForm") MemberDTO memberDTO) {return "members/login";}
+
+    @PostMapping("/login")
+    public String login(@Valid @ModelAttribute("MemberForm") MemberDTO memberDTO, BindingResult
+            bindingResult, HttpSession session) {
+        /*if (bindingResult.hasErrors()) {
+            System.out.println("바인딩 에러");
+            return "members/login";
+        }*/
+
+        MemberDTO loginMember = memberService.login(memberDTO);
+
+        if (loginMember == null) { // 로그인 실패
+            bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
+            System.out.println("로그인 실패");
+            return "members/login";
+        } else{
+            // 로그인 성공
+            session.setAttribute("nickname", loginMember.getNickname());
+            System.out.println("로그인 성공");
+            return "order";
+            //return "redirect:/";
+        }
+    }
+
+    @GetMapping("/add") // 회원가입
+=======
     @GetMapping("/login")
     public String loginForm(@ModelAttribute("loginForm") LoginFormDTO form) {
         return "members/login";
@@ -59,7 +88,6 @@ public class MemberController {
         if (bindingResult.hasErrors()) {
             return "members/joinMember";
         }
-
         memberRepository.save(Member.toEntity(memberDTO));
         return "redirect:/";
     }
