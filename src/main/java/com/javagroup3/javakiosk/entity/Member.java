@@ -32,6 +32,7 @@ public class Member {
     }
 
     public static Member toEntity(MemberDTO dto){
+        // Repository로 DB 작업을 할때는 Entity 객체를 넘겨 줘야 하므로 DTO 객체를 Entity객체로 변환하는 메소드
         return Member.builder()
                 .nickname(dto.getNickname())
                 .username(dto.getUsername())

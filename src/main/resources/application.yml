@@ -5,16 +5,17 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: <YOUR_DB_URL>
-    username: <YOUR_DB_USERNAME>
-    password: <YOUR_DB_PASSWORD>
+    url: jdbc:mysql://db-mysql-sgp1-29526-do-user-6951745-0.b.db.ondigitalocean.com:25060/javakiosk?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: kiosk
+    password: AVNS_0zwbzJmOtEiX_v8nFOq
   thymeleaf:
     cache: false
 
   # spring data jpa 설정
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: create # create -> 프로젝트를 실행할때마다 테이블이 다시 만들어짐
+                       # update -> 바뀌는게 있을때만 변경하고 아닌 경우에는 기존 테이블 유지
     properties:
       hibernate:
         format_sql: true
