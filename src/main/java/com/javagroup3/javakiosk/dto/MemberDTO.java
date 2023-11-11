@@ -15,8 +15,6 @@ public class MemberDTO {
     // Spring 에서 DTO 를 초기화 할 때 멤버 변수를 Null 로 초기화 할 수 있도록
     // Primitive type 대신 Wrapper Class 를 사용할 것.
     @NotEmpty
-    private String nickname; // 유저 닉네임
-    @NotEmpty
     private String username; // 유저 이름
     @NotEmpty
     private String password; // 비밀번호
@@ -26,7 +24,6 @@ public class MemberDTO {
 
     public static MemberDTO toDTO(Member entity){
         return MemberDTO.builder()
-                .nickname(entity.getNickname())
                 .username(entity.getUsername())
                 .password(entity.getPassword())
                 .email(entity.getEmail())

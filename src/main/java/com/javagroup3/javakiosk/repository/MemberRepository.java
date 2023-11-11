@@ -11,5 +11,5 @@ import java.util.Optional;
 @Transactional
 public interface MemberRepository extends JpaRepository<Member, String> {
     // nickname으로 회원 정보 조회, select * from member_table where nickname=? 이과 같은 쿼리문 수행
-    Optional<Member> findByNickname(String nickname);
+    Optional<Member> findByUsername(String username);
 }
