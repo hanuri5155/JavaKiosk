@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 public class Member {
     @Id
     private String nickname; // 유저 닉네임
-
     private String username; // 유저 이름
     private String password; // 비밀번호
     private String email; // 이메일
