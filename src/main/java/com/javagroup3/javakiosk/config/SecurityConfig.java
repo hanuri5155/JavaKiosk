@@ -21,6 +21,13 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
+                .authorizeHttpRequests(authorize -> authorize
+
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                                .requestMatchers("/**").permitAll()
+                        // .anyRequest().authenticated()
+                );
+        http
                 .formLogin(formLogin -> formLogin
                         .loginPage("/members/login")
                         .defaultSuccessUrl("/order")
@@ -30,6 +37,8 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/")
                         .invalidateHttpSession(true)
                 );
+
+
         http.csrf(csrf -> csrf.disable());
 //        http
 //                .cors(Customizer.withDefaults())
