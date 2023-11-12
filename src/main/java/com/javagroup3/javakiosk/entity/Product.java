@@ -2,8 +2,10 @@ package com.javagroup3.javakiosk.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "product")
 public class Product {
@@ -14,4 +16,9 @@ public class Product {
     private String name; // 제품 이름
     private int price; // 제품 가격
     private boolean is_orderable; // 주문 가능 여부
+
+    @PrePersist
+    protected void onCreate() {
+        is_orderable = true;
+    }
 }
