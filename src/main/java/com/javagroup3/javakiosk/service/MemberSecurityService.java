@@ -1,19 +1,16 @@
 package com.javagroup3.javakiosk.service;
 
-
 import com.javagroup3.javakiosk.authority.MemberAuthority;
-import com.javagroup3.javakiosk.dto.MemberDTO;
+import com.javagroup3.javakiosk.config.CurrentMember;
 import com.javagroup3.javakiosk.entity.Member;
 import com.javagroup3.javakiosk.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +33,6 @@ public class MemberSecurityService implements UserDetailsService {
         } else {
             authorities.add(new SimpleGrantedAuthority(MemberAuthority.USER.getName()));
         }
-        return new User(member.getUsername(), member.getPassword(), authorities);
+        return new CurrentMember(member.getUsername(), member.getPassword(), authorities, member);
     }
 }
