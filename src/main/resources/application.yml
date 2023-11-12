@@ -7,9 +7,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://db-mysql-sgp1-29526-do-user-6951745-0.b.db.ondigitalocean.com:25060/javakiosk?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: kiosk
-    password: 
+    password:
   thymeleaf:
     cache: false
+  sql:
+    init:
+      platform: mysql
+      mode: always
 
   # spring data jpa 설정
   jpa:
