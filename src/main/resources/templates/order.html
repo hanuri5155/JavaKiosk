@@ -1,12 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Java 식당 :: 주문</title>
+    <title>Product List</title>
 </head>
 <body>
-    <div>테이크 아웃 / 매장에서 식사</div>
-    <div>제품 목록 / 선택</div>
-    session 값 확인: <p th:text="${session.nickname}"> </p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Is Orderable</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${productList}" th:id="'item_' + ${product.product_id}">
+        <td th:text="${product.product_id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:style="${product.is_orderable ? 'color: gray' : ''}"
+            th:text="${product.is_orderable ? 'Yes' : 'No'}"></td>
+        <td>
+            <label th:for="'quantity_' + ${product.product_id}"></label>
+            <input type="number" th:id="'quantity_' + ${product.product_id}" value="1" min="1" max="10" step="1">
+        </td>
+        <td>
+            <button
+                    th:productId="${product.product_id}"
+                    th:productName="${product.name}"
+                    th:productPrice="${product.price}"
+                    onclick="addToCart(
+                        this.getAttribute('productId'),
+                        this.getAttribute('productName'),
+                        this.getAttribute('productPrice')
+                        )"
+            >
+                장바구니 담기
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<button onclick='makeOrder()'>주문하기</button>
+
+<script>
+    let cart = [];
+
+    function addToCart(productId, productName, productPrice){
+        const quantityInput = document.getElementById("quantity_" + productId);
+        const quantity = parseInt(quantityInput.value);
+        cart.push({productId, productName, productPrice, quantity})
+    }
+    function makeOrder(){
+        fetch('/order', {
+            method: 'POST',
+            body: JSON.stringify(cart)
+        })
+            .then(res => res.json())
+            .then(data => {
+            alert(data.message);
+            console.log(data);
+            cart = [];
+        })
+    }
+</script>
+
 </body>
 </html>
