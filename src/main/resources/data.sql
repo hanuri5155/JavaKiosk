@@ -1,4 +1,4 @@
--- 고기
+/*-- 고기
 INSERT INTO product VALUES (1, 5000, 240, '구운 양고기');
 INSERT INTO product VALUES (1, 5000, 241, '바베큐폭립');
 INSERT INTO product VALUES (1, 5000, 242, '소고기 스테이크');
@@ -22,4 +22,4 @@ INSERT INTO product VALUES (1, 5000, 253, '연어 샐러드');
 
 -- 디저트
 INSERT INTO product VALUES (1, 5000, 254, '아이스크림 브라우니');
-INSERT INTO product VALUES (1, 5000, 255, '초콜릿 푸딩');
+INSERT INTO product VALUES (1, 5000, 255, '초콜릿 푸딩');*/

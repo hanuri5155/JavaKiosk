@@ -19,6 +19,12 @@
         </div>
 
         <div>
+            <label for="email">이메일</label>
+            <input type="text" id="email" th:field="*{email}" class="form-control"
+                   th:errorclass="field-error">
+            <div class="field-error" th:errors="*{email}"></div>
+        </div>
+        <div>
             <label for="username">로그인 ID</label>
             <input type="text" id="username" th:field="*{username}" class="form-control"
                    th:errorclass="field-error">

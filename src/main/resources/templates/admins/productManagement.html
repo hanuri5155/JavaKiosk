@@ -11,6 +11,7 @@
 <a th:href="@{/admins/orderManagement}">주문 관리</a>
 <table>
     <tr>
+        <th>제품 id</th>
         <th>판매 가능 여부</th>
         <th>가격</th>
         <th>음식 이름</th>
@@ -18,14 +19,15 @@
         <th>삭제</th>
     </tr>
     <tr th:each="product: ${productlist}">
+        <td th:text="${product.product_id}"></td>
         <td th:text="${product.is_orderable}"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${product.name}"></td>
         <td>
-            <a th:href="@{|/product/${product.name}|}">조회</a>
+            <a th:href="@{|/products/${product.product_id}|}">조회</a>
         </td>
         <td>
-            <a th:href="@{|/product/delete/${product.name}|}">삭제</a>
+            <a th:href="@{|/products/delete/${product.product_id}|}">삭제</a>
         </td>
     </tr>
 </table>
