@@ -1,12 +1,15 @@
 package com.javagroup3.javakiosk.entity;
 
+import com.javagroup3.javakiosk.dto.ProductDTO;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@Builder
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "product")
 public class Product {
     @Id
@@ -20,5 +23,15 @@ public class Product {
     @PrePersist
     protected void onCreate() {
         is_orderable = true;
+    }
+
+    public static Product toUpdateProductEntity(ProductDTO dto){
+        // Repository로 DB 작업을 할때는 Entity 객체를 넘겨 줘야 하므로 DTO 객체를 Entity객체로 변환하는 메소드
+        return Product.builder()
+                .product_id(dto.getProduct_id())
+                .name(dto.getName())
+                .price(dto.getPrice())
+                .is_orderable(dto.getIs_orderable())
+                .build();
     }
 }

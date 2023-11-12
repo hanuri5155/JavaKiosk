@@ -6,9 +6,7 @@ import com.javagroup3.javakiosk.service.MemberService;
 import com.javagroup3.javakiosk.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import java.util.List;
 
@@ -32,9 +30,29 @@ public class AdminController {
 
     private  final ProductService productService;
     @GetMapping("/admins/productManagement")
-    public String productFindAll(Model model){
+    public String productFindAll(Model model){ // 제품 출력
         List<ProductDTO> productDTOList = productService.findAll();
         model.addAttribute("productlist", productDTOList);
         return "admins/productManagement";
+    }
+
+    @GetMapping("/products/{id}") // 상세 조회
+    public String productFindyId(@PathVariable Integer id, Model model){
+        ProductDTO productDTO = productService.findById(id);
+        model.addAttribute("products", productDTO);
+        return "products/productDetail";
+    }
+
+    @GetMapping("/products/productUpdate/{id}") // 정보 수정
+    public String productUpdateForm(@PathVariable Integer id, Model model){
+        ProductDTO productDTO = productService.findById(id);
+        model.addAttribute("products", productDTO);
+        return "products/productUpdate";
+    }
+
+    @PostMapping("/products/productUpdate/{id}")
+    public String productUpdate(@ModelAttribute ProductDTO productDTO){
+        productService.ubdate(productDTO);
+        return "redirect:/products/" + productDTO.getProduct_id();
     }
 }

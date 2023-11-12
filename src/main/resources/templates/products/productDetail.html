@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ProductDetail</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>id</th>
+        <th>is_orderable</th>
+        <th>price</th>
+        <th>name</th>
+    </tr>
+    <tr>
+        <td th:text="${products.product_id}"></td>
+        <td th:text="${products.is_orderable}"></td>
+        <td th:text="${products.price}"></td>
+        <td th:text="${products.name}"></td>
+    </tr>
+</table>
+<a th:href="@{|/products/productUpdate/${products.product_id}|}">정보 수정하기</a>
+</body>
+</html>
