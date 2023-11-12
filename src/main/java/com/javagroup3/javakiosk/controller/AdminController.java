@@ -36,14 +36,14 @@ public class AdminController {
         return "admins/productManagement";
     }
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/products/{id}") // 상세 조회
     public String productFindyId(@PathVariable Integer id, Model model){
         ProductDTO productDTO = productService.findById(id);
         model.addAttribute("products", productDTO);
         return "products/productDetail";
     }
 
-    @GetMapping("/products/productUpdate/{id}")
+    @GetMapping("/products/productUpdate/{id}") // 정보 수정
     public String productUpdateForm(@PathVariable Integer id, Model model){
         ProductDTO productDTO = productService.findById(id);
         model.addAttribute("products", productDTO);
