@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>MemberManagement</title>
+</head>
+<body>
+<h2>회원 관리 페이지</h2>
+<a th:href="@{/admins}">회원 관리</a>
+<a th:href="@{/admins/productManagement}">제품 관리</a>
+<a th:href="@{/admins/orderManagement}">주문 관리</a>
+<table>
+    <tr>
+        <th>email</th>
+        <th>phone_number</th>
+        <th>username</th>
+        <th>상세조회</th>
+        <th>삭제</th>
+    </tr>
+    <tr th:each="member: ${memberlist}">
+        <td th:text="${member.email}"></td>
+        <td th:text="${member.phone_number}"></td>
+        <td th:text="${member.username}"></td>
+        <td>
+            <!-- query string /member?id=1
+                rest api /member/1 -->
+            <a th:href="@{|/member/${member.username}|}">조회</a>
+        </td>
+        <td>
+            <a th:href="@{|/member/delete/${member.username}|}">삭제</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
