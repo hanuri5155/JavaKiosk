@@ -1,9 +1,6 @@
 package com.javagroup3.javakiosk.controller;
 
 import com.javagroup3.javakiosk.dto.MemberDTO;
-import com.javagroup3.javakiosk.entity.Member;
-import com.javagroup3.javakiosk.repository.MemberRepository;
-import com.javagroup3.javakiosk.service.MemberSecurityService;
 import com.javagroup3.javakiosk.service.MemberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/members")
@@ -29,12 +26,12 @@ public class MemberController {
         return "members/login";
     }
 
-    @GetMapping("/signup")
+    @GetMapping("/signUp")
     public String signup(@ModelAttribute("member") MemberDTO memberDTO){
         return "members/signUp";
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/signUp")
     public String save(@Valid @ModelAttribute MemberDTO memberDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "members/signUp";
