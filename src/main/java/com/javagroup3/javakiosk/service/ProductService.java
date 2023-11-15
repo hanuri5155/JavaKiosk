@@ -2,6 +2,7 @@ package com.javagroup3.javakiosk.service;
 
 import com.javagroup3.javakiosk.dto.ProductDTO;
 import com.javagroup3.javakiosk.entity.Member;
+import com.javagroup3.javakiosk.entity.OrderRecord;
 import com.javagroup3.javakiosk.entity.Product;
 import com.javagroup3.javakiosk.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -35,5 +36,9 @@ public class ProductService {
 
     public void ubdate(ProductDTO productDTO) {
         productRepository.save(Product.toUpdateProductEntity(productDTO));
+    }
+
+    public List<Product> getList(){
+        return this.productRepository.findAll();
     }
 }

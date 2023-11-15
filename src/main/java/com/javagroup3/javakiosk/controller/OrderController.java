@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import com.javagroup3.javakiosk.ResponseTransfer;
 import com.javagroup3.javakiosk.config.CurrentMember;
 import com.javagroup3.javakiosk.dto.Cart;
+import com.javagroup3.javakiosk.dto.ProductDTO;
 import com.javagroup3.javakiosk.entity.Member;
 import com.javagroup3.javakiosk.entity.OrderRecord;
 import com.javagroup3.javakiosk.entity.Product;
@@ -33,8 +34,7 @@ public class OrderController {
     @GetMapping("/order") // 메인 페이지 주소
     public String order(Model model){
         List<Product> productList = this.productService.getList();
-        model.addAttribute(productList);
-
+        model.addAttribute("productList", productList);
         return "order";
     }
 
