@@ -24,7 +24,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
 
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/admins/**").hasRole("ADMIN")
                                 .requestMatchers("/**").permitAll()
                         // .anyRequest().authenticated()
                 );
