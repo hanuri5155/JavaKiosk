@@ -2,7 +2,9 @@ package com.javagroup3.javakiosk.controller;
 
 import com.javagroup3.javakiosk.dto.MemberDTO;
 import com.javagroup3.javakiosk.dto.ProductDTO;
+import com.javagroup3.javakiosk.entity.OrderRecord;
 import com.javagroup3.javakiosk.service.MemberService;
+import com.javagroup3.javakiosk.service.OrderRecordService;
 import com.javagroup3.javakiosk.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,7 @@ public class AdminController {
         return "admins/memberManagement";
     }*/
     private  final MemberService memberService;
+    private final OrderRecordService orderRecordService;
 
     @GetMapping("/admins_ex") // 메인 페이지 주소
     public String adminmember(){
@@ -31,6 +34,16 @@ public class AdminController {
         // 어떠한 html로 가져갈 데이터가 있을시 그 객체를 실어나르는 역할을 하는게 model
         model.addAttribute("memberlist", memberDTOList);
         return "admins/memberManagement";
+    }
+
+    @GetMapping("/admins/orderManagement")
+    public String orderManagement(Model model){
+        List<OrderRecord> orderRecords = orderRecordService.getList();
+
+        System.out.println(orderRecords);
+
+        model.addAttribute("orderRecords", orderRecords);
+        return "admins/orderManagement";
     }
 
     private  final ProductService productService;

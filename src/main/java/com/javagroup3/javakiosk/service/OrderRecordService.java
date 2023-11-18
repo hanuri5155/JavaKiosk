@@ -16,4 +16,8 @@ public class OrderRecordService {
     public void addOrderRecord(OrderRecord orderRecord){
         this.orderRecordRepository.save(orderRecord);
     }
+
+    public void removeRecord(int orderId){
+        this.orderRecordRepository.deleteById(orderId);
+    }
 }

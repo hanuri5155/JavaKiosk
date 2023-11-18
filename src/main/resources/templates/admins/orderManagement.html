@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>OderManagement</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/orderManagement.css}" />
+    <title>주문 관리</title>
+    <script th:attr="defer='defer'" th:src="@{/js/orderManagement.js}">
+    </script>
 </head>
 <body>
-<h2>주문 관리 페이지</h2>
-session 값 확인: <p th:text="${session.nickname}"> </p>
+<h2>주문 관리</h2>
+
+<table id="orderTable">
+    <thead>
+    <tr>
+        <th>주문 번호</th>
+        <th>주문자 이름</th>
+        <th>제품명</th>
+        <th>주문 수량</th>
+        <th>주문일</th>
+        <th>취소</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="orderRecord : ${orderRecords}">
+        <td th:class="orderId" th:text="${orderRecord.orderId}"></td>
+        <td th:text="${orderRecord.member.username}"></td>
+        <td th:text="${orderRecord.product.name}"></td>
+        <td th:text="${orderRecord.orderQuantity}"></td>
+        <td th:text="${orderRecord.orderDate}"></td>
+        <td><button th:class="cancel">주문 취소</button></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

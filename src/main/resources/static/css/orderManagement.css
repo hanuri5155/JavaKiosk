@@ -1,0 +1,29 @@
+/* Style for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Style for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Style for table headers */
+th {
+    background-color: #f2f2f2;
+}
+
+/* Style for table cells */
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style for the page header */
+h2 {
+    color: #333;
+}
