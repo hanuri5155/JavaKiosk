@@ -9,6 +9,7 @@ import com.javagroup3.javakiosk.dto.ProductDTO;
 import com.javagroup3.javakiosk.entity.Member;
 import com.javagroup3.javakiosk.entity.OrderRecord;
 import com.javagroup3.javakiosk.entity.Product;
+import com.javagroup3.javakiosk.service.OrderRecordService;
 import com.javagroup3.javakiosk.service.ProductService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -22,11 +23,13 @@ import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
 public class OrderController {
     private final ProductService productService;
+    private final OrderRecordService orderRecordService;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -85,5 +88,18 @@ public class OrderController {
         entityManager.flush();
 
         return new ResponseTransfer("주문이 성공적으로 처리되었습니다.");
+    }
+
+    @PostMapping("/order/cancel")
+    @ResponseBody
+    public ResponseTransfer orderCancel(@RequestBody String orderId, Authentication authentication){
+        CurrentMember currentMember = (CurrentMember) authentication.getPrincipal();
+
+        if(!currentMember.getUsername().equals("admin")) {
+            return new ResponseTransfer("관리자가 아닙니다.");
+        }
+
+        orderRecordService.removeRecord(Integer.parseInt(orderId));
+        return new ResponseTransfer("주문 취소됨.");
     }
 }
