@@ -20,6 +20,11 @@ public class AdminController {
         return "admins/memberManagement";
     }*/
     private  final MemberService memberService;
+
+    @GetMapping("/admins_ex") // 메인 페이지 주소
+    public String adminmember(){
+        return "admins/newmemberManagement";
+    }
     @GetMapping("/admins")
     public String memberFindAll(Model model){
         List<MemberDTO> memberDTOList = memberService.findAll();
