@@ -16,6 +16,28 @@ window.onclick = function () {
     elm(".accountLinks")[0].style.display = "none";
 };
 
+// 주문 취소 클릭
+const ul = document.getElementById('orderTable');
+let cancelBtn = document.getElementsByClassName('.cancel');
+
+ul.addEventListener('click', e => {
+    const target = e.target;
+    if(target.tagName !== 'BUTTON' || !target.classList.contains("cancel")) return;
+
+    const orderId = target.parentNode.parentNode.getElementsByClassName('orderId')[0].innerText;
+
+    console.log(orderId);
+    fetch('/order/cancel', {
+        method: 'POST',
+        body: orderId
+    })
+        .then(res => res.json())
+        .then(data => {
+            alert(data.message);
+            console.log(data);
+        })
+})
+
 // SUB MENU
 if (elm(".has-submenu")) {
     for (var i = 0, len = elm(".has-submenu").length; i < len; i++) {
@@ -100,30 +122,6 @@ if (elm(".caretAll")) {
                     row[i].classList.remove("is-active");
                 }
             }
-        };
-    }
-}
-
-// SORT
-if (elm(".titleSelect") != undefined) {
-    for (var i = 0, len = elm(".titleSelect").length; i < len; i++) {
-        elm(".titleSelect")[i].onclick = function (e) {
-            e.stopPropagation();
-            this.classList.toggle("is-active");
-        };
-    }
-}
-window.onclick = function () {
-    for (var i = 0, len = elm(".titleSelect").length; i < len; i++) {
-        elm(".titleSelect")[i].classList.remove("is-active");
-    }
-};
-
-// FILTER
-if (elm(".btnFilter") != undefined) {
-    for (var i = 0, len = elm(".btnFilter").length; i < len; i++) {
-        elm(".btnFilter")[i].onclick = function () {
-            elm(".boxFilter")[0].classList.toggle("is-active");
         };
     }
 }

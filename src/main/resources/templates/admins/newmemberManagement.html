@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>MemberManagement</title>
-    <link rel="stylesheet" th:href="@{http://localhost:8081/adminstyle.css}">
-    <link rel="stylesheet" th:href="@{http://localhost:8081/adminjs.js}">
+    <title>회원 관리</title>
+    <link rel="stylesheet" th:href="@{http://localhost:8081/css/adminstyle.css}">
 </head>
+<body>
 <div class="container">
     <!--     SIDE AREA -->
     <div class="sideArea">
@@ -15,14 +15,9 @@
             <div class="avatarName">Welcome,<br>admin</div>
         </div>
         <ul class="sideMenu">
-            <li><a class="has-submenu" href="javascript:void(0)"><span class="fa fa-table"></span>PRODUCT</a>
-                <ul class="submenu">
-                    <li><a href="index.php?c=product&a=list01"><span class="fa fa-list"></span>Product List</a></li>
-                    <li><a href="index.php?c=product&a=list02"><span class="fa fa-tags"></span>Category List</a></li>
-                </ul>
-            </li>
-            <li><a href="menu_list.php"><span class="fa fa-sitemap"></span>ORDER</a></li>
-            <li><a href="invoice_list.php"><span class="fa fa-money"></span>USER</a></li>
+            <li><a th:href="@{/admins}"><span class="fa fa-table"></span>ORDER</a></li>
+            <li><a class="has-submenu" th:href="@{/admins/productManagement}"><span class="fa fa-table"></span>PRODUCT</a></li>
+            <li><a th:href="@{/admins/memberManagement}"><span class="fa fa-table"></span>USER</a></li>
         </ul>
     </div>
     <!--     SIDE AREA -->
@@ -33,8 +28,8 @@
             <div class="account fr">
                 <div class="name has-submenu">admin<span class="fa fa-angle-down"></span></div>
                 <ul class="accountLinks submenu">
-                    <li><a href="">View website</a></li>
-                    <li><a href="">Log out<span class="fa fa-sign-out fr"></span></a></li>
+                    <li><a th:href="@{/}">홈페이지</a></li>
+                    <li><a th:href="@{/members/logout}">로그아웃<span class="fa fa-sign-out fr"></span></a></li>
                 </ul>
             </div>
         </nav>
@@ -62,8 +57,8 @@
                         <div class="cell cell-100 text-center text-fff">IMAGE</div>
                         <div class="cell cell-100 text-fff">PRICE</div>
                         <div class="cell cell-100p text-fff">NAME</div>
-                        <div class="cell cell-100 text-center text-fff"><input class="checkbox checkAll" name="statusAll"
-                                                                               target=".status" type="checkbox"></div>
+                        <div class="cell cell-100 text-center text-fff">
+                            <input class="checkbox checkAll" name="statusAll" target=".status" type="checkbox"></div>
                         <div class="cell cell-100 text-center text-fff">EDIT</div>
                     </div>
                     <!--   BEGIN LOOP -->
@@ -73,7 +68,8 @@
                             <div class="cell cell-100 text-center">1</div>
                             <div class="cell cell-100 text-center">
                                 <a href=""><img alt=""
-                                                src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg" width="50"></a>
+                                                src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg"
+                                                width="50"></a>
                             </div>
                             <div class="cell cell-100p"><a href="">PRODUCT 01</a></div>
                             <div class="cell cell-100 text-center">
@@ -81,9 +77,9 @@
                                 <input class="btnSwitch status" name="status" type="checkbox">
                             </div>
                             <div class="cell cell-100 text-center">
-                                <a class="btnEdit fa fa-pencil bg-1 text-fff" href=""></a><a class="btnRemove fa fa-remove bg-1 text-fff"
-                                                                                             href=""
-                                                                                             onclick='return confirm("Do you really want to remove it ?")'></a>
+                                <a class="btnEdit fa fa-pencil bg-1 text-fff" href=""></a>
+                                <a class="btnRemove fa fa-remove bg-1 text-fff" href=""
+                                    onclick='return confirm("정말로 삭제 하시겠습니까?")'></a>
                             </div>
                         </li>
                         <li class="row">
@@ -91,7 +87,8 @@
                             <div class="cell cell-100 text-center">1</div>
                             <div class="cell cell-100 text-center">
                                 <a href=""><img alt=""
-                                                src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg" width="50"></a>
+                                                src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg"
+                                                width="50"></a>
                             </div>
                             <div class="cell cell-100p"><a href="">PRODUCT 01</a></div>
                             <div class="cell cell-100 text-center">
@@ -99,9 +96,10 @@
                                 <input class="btnSwitch status" name="status" type="checkbox">
                             </div>
                             <div class="cell cell-100 text-center">
-                                <a class="btnEdit fa fa-pencil bg-1 text-fff" href=""></a><a class="btnRemove fa fa-remove bg-1 text-fff"
-                                                                                             href=""
-                                                                                             onclick="return confirm('Do you really want to remove it ?')"></a>
+                                <a class="btnEdit fa fa-pencil bg-1 text-fff" href=""></a><a
+                                    class="btnRemove fa fa-remove bg-1 text-fff"
+                                    href=""
+                                    onclick="return confirm('Do you really want to remove it ?')"></a>
                             </div>
                         </li>
                     </ul>
@@ -141,21 +139,20 @@
                         <label class="inputGroup hide">
                             <span>Brand</span>
                             <span>
-                <input name="cate" type="text">
-                <select name="brand">
-                  <option value="cate01">Brand01</option>
-                  <option value="cate02">Brand02</option>
-                </select>
-              </span>
+                                <input name="cate" type="text">
+                                <select name="brand">
+                                  <option value="cate01">Brand01</option>
+                                  <option value="cate02">Brand02</option>
+                                </select>
+                            </span>
                         </label>
                         <label class="inputGroup">
                             <span>Image</span>
                             <input name="img" type="hidden" value="src">
                             <span>
-                <input multiple name="img" onchange="getImg(this)" type="file">
-                <img alt="" src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg" width="50">
-              </span>
-
+                                <input multiple name="img" onchange="getImg(this)" type="file">
+                                <img alt="" src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg" width="50">
+                            </span>
                         </label>
                     </div>
                     <div class="column">
@@ -180,3 +177,6 @@
         <!-- END CONTAINER  -->
     </div>
 </div>
+<script th:src="@{http://localhost:8081/js/adminjs.js}"></script>
+</body>
+</html>

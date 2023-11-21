@@ -16,27 +16,10 @@ import java.util.List;
 @RequiredArgsConstructor
 //@RequestMapping("/admins")
 public class AdminController {
-    //@RequestMapping("/")
-    /*@GetMapping("/admins")
-    public String admin(){
-        return "admins/memberManagement";
-    }*/
     private  final MemberService memberService;
     private final OrderRecordService orderRecordService;
 
-    @GetMapping("/admins_ex") // 메인 페이지 주소
-    public String adminmember(){
-        return "admins/newmemberManagement";
-    }
     @GetMapping("/admins")
-    public String memberFindAll(Model model){
-        List<MemberDTO> memberDTOList = memberService.findAll();
-        // 어떠한 html로 가져갈 데이터가 있을시 그 객체를 실어나르는 역할을 하는게 model
-        model.addAttribute("memberlist", memberDTOList);
-        return "admins/memberManagement";
-    }
-
-    @GetMapping("/admins/orderManagement")
     public String orderManagement(Model model){
         List<OrderRecord> orderRecords = orderRecordService.getList();
 
@@ -53,15 +36,22 @@ public class AdminController {
         model.addAttribute("productlist", productDTOList);
         return "admins/productManagement";
     }
+    @GetMapping("/admins/memberManagement")
+    public String memberFindAll(Model model){
+        List<MemberDTO> memberDTOList = memberService.findAll();
+        // 어떠한 html로 가져갈 데이터가 있을시 그 객체를 실어나르는 역할을 하는게 model
+        model.addAttribute("memberlist", memberDTOList);
+        return "admins/memberManagement";
+    }
 
-    @GetMapping("/products/{id}") // 상세 조회
+    @GetMapping("/products/{id}") // 제품 상세 조회
     public String productFindyId(@PathVariable Integer id, Model model){
         ProductDTO productDTO = productService.findById(id);
         model.addAttribute("products", productDTO);
         return "products/productDetail";
     }
 
-    @GetMapping("/products/productUpdate/{id}") // 정보 수정
+    @GetMapping("/products/productUpdate/{id}") // 제품 정보 수정
     public String productUpdateForm(@PathVariable Integer id, Model model){
         ProductDTO productDTO = productService.findById(id);
         model.addAttribute("products", productDTO);

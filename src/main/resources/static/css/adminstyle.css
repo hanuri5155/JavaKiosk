@@ -17,6 +17,13 @@ p {
 ul {
     list-style: none;
 }
+
+table {
+    list-style: none;
+}
+tr{
+
+}
 a, a:hover, a:focus, a:visited {
     display: inline-block;
     text-decoration: none;
@@ -695,7 +702,6 @@ label {
     color: #fff;
     line-height: 1.5;
 }
-
 
 /* SIDE CSS */
 .sideArea {
