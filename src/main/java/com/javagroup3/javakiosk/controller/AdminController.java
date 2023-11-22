@@ -36,6 +36,12 @@ public class AdminController {
         model.addAttribute("productlist", productDTOList);
         return "admins/productManagement";
     }
+    @GetMapping("/admins/newProductManager")
+    public String newproductFindAll(Model model){ // 제품 출력
+        List<ProductDTO> productDTOList = productService.findAll();
+        model.addAttribute("productlist", productDTOList);
+        return "admins/newProductManager";
+    }
     @GetMapping("/admins/memberManagement")
     public String memberFindAll(Model model){
         List<MemberDTO> memberDTOList = memberService.findAll();

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>회원 관리</title>
+  <link rel="stylesheet" th:href="@{http://localhost:8081/css/adminstyle.css}">
+</head>
+<body>
+<div class="container">
+  <!--     SIDE AREA -->
+  <div class="sideArea">
+    <div class="avatar">
+      <img alt=""
+           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCNOdyoIXDDBztO_GC8MFLmG_p6lZ2lTDh1ZnxSDawl1TZY_Zw">
+      <div class="avatarName">Welcome,<br>admin</div>
+    </div>
+    <ul class="sideMenu">
+      <li><a th:href="@{/admins}"><span class="fa fa-table"></span>ORDER</a></li>
+      <li><a class="has-submenu" th:href="@{/admins/newProductManager}"><span class="fa fa-table"></span>PRODUCT</a></li>
+      <li><a th:href="@{/admins/newProductManager}"><span class="fa fa-table"></span>USER</a></li>
+    </ul>
+  </div>
+  <!--     SIDE AREA -->
+  <div class="mainArea">
+    <!-- BEGIN NAV -->
+    <nav class="navTop row">
+      <div class="menuIcon fl"><span class="fa fa-bars"></span></div>
+      <div class="account fr">
+        <div class="name has-submenu">admin<span class="fa fa-angle-down"></span></div>
+        <ul class="accountLinks submenu">
+          <li><a th:href="@{/}">홈페이지</a></li>
+          <li><a th:href="@{/members/logout}">로그아웃<span class="fa fa-sign-out fr"></span></a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- END NAV -->
+    <!-- CONTAINER  -->
+    <div class="mainContent">
+      <!-- LIST FORM -->
+      <div class="row filterGroup">
+        <form action="" class="formSearch fl" method="POST">
+          <input class="inputSearch" placeholder="Search" type="text">
+          <button class="btnSearch" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <form action="" class="form scrollX" method="GET" name="listForm">
+        <div class="formHeader row">
+          <h2 class="text-1 fl">제품 목록</h2>
+        </div>
+        <div class="table">
+          <div class="row bg-1">
+            <div class="cell cell-100 text-center text-fff">제품 번호</div>
+            <div class="cell cell-150 text-center text-fff">이미지</div>
+            <div class="cell cell-100 text-center text-fff">가격</div>
+            <div class="cell cell-100p text-fff">이름</div>
+            <div class="cell cell-100 text-center text-fff">
+              <input class="checkbox checkAll" name="statusAll" target=".status" type="checkbox"></div>
+            <div class="cell cell-100 text-center text-fff">삭제</div>
+          </div>
+          <!--   BEGIN LOOP -->
+          <ul>
+            <li class="row" th:each="product: ${productlist}">
+              <div class="cell cell-100 text-center" th:text="${product.product_id}"></div>
+              <div class="cell cell-150 text-center">
+                <a href=""><img alt=""
+                                src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg"
+                  width="50"></a>
+              </div>
+              <div class="cell cell-100 text-center" th:text="${product.price}"></div>
+              <div class="cell cell-100p" th:text="${product.name}"><a href=""></a></div>
+              <div class="cell cell-100 text-center">
+                <input class="status" name="status" type="hidden" value="0">
+                <input class="btnSwitch status" name="status" type="checkbox">
+              </div>
+              <div class="cell cell-100 text-center">
+                <a class="btnRemove fa fa-remove bg-1 text-fff" href=""
+                   onclick='return confirm("정말로 삭제 하시겠습니까?")'>삭제</a>
+              </div>
+            </li>
+          </ul>
+          <!--   END LOOP -->
+        </div>
+      </form>
+
+      <!-- DETAIL FORM -->
+      <form action="" class="form" enctype="multipart/form-data" method="POST">
+        <div class="formHeader row">
+          <h2 class="text-1 fl">Product Detail</h2>
+          <div class="fr">
+            <button class="btnSave bg-1 text-fff text-bold fr" type="submit">SAVE</button>
+            <a class="btnAdd fa fa-plus bg-1 text-fff" href=""></a>
+          </div>
+        </div>
+        <div class="formBody row">
+          <div class="column s-6">
+            <label class="inputGroup">
+              <span>Name</span>
+              <span><input name="name" type="text"></span>
+            </label>
+            <label class="inputGroup">
+              <span>Code</span>
+              <span><input name="code" type="text"></span>
+            </label>
+            <label class="inputGroup">
+              <span>Price</span>
+              <span><input name="price" type="text"></span>
+            </label>
+            <label class="inputGroup">
+              <span>Note</span>
+              <span><input name="note" type="text"></span>
+            </label>
+          </div>
+          <div class="column s-6">
+            <label class="inputGroup hide">
+              <span>Brand</span>
+              <span>
+                                <input name="cate" type="text">
+                                <select name="brand">
+                                  <option value="cate01">Brand01</option>
+                                  <option value="cate02">Brand02</option>
+                                </select>
+                            </span>
+            </label>
+            <label class="inputGroup">
+              <span>Image</span>
+              <input name="img" type="hidden" value="src">
+              <span>
+                                <input multiple name="img" onchange="getImg(this)" type="file">
+                                <img alt="" src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg" width="50">
+                            </span>
+            </label>
+          </div>
+          <div class="column">
+            <label class="inputGroup">
+              <span>Description</span>
+              <textarea name="description"></textarea>
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <div id="pagination">
+        <ul class="pagination list-inline text-center">
+          <li class="is-active"><a href="?page=1">1</a></li>
+          <li><a href="?page=2">2</a></li>
+          <li><a href="?page=3">3</a></li>
+          <li><a href="?page=4">4</a></li>
+          <li><a href="?page=5">5</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- END CONTAINER  -->
+  </div>
+</div>
+<script th:src="@{http://localhost:8081/js/adminjs.js}"></script>
+</body>
+</html>
