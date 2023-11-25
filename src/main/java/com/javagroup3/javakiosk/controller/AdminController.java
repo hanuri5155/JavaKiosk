@@ -49,6 +49,14 @@ public class AdminController {
         model.addAttribute("memberlist", memberDTOList);
         return "admins/memberManagement";
     }
+    @GetMapping("/admins/newmemberManagement")
+    public String newmemberFindAll(Model model){
+        List<MemberDTO> memberDTOList = memberService.findAll();
+        // 어떠한 html로 가져갈 데이터가 있을시 그 객체를 실어나르는 역할을 하는게 model
+        model.addAttribute("memberlist", memberDTOList);
+        return "admins/newmemberManagement";
+    }
+
 
     @GetMapping("/products/{id}") // 제품 상세 조회
     public String productFindyId(@PathVariable Integer id, Model model){
