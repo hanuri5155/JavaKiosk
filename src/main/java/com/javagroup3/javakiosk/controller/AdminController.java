@@ -2,7 +2,9 @@ package com.javagroup3.javakiosk.controller;
 
 import com.javagroup3.javakiosk.dto.MemberDTO;
 import com.javagroup3.javakiosk.dto.ProductDTO;
+import com.javagroup3.javakiosk.entity.OrderRecord;
 import com.javagroup3.javakiosk.service.MemberService;
+import com.javagroup3.javakiosk.service.OrderRecordService;
 import com.javagroup3.javakiosk.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import java.util.List;
 //@RequestMapping("/admins")
 public class AdminController {
     private  final MemberService memberService;
+    private final OrderRecordService orderRecordService;
 
     @GetMapping("/admins")
     public String orderManagement(Model model){

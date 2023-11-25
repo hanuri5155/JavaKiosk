@@ -107,7 +107,7 @@ strike {
 .wrap {
     max-width: 1200px;
     margin: 0 auto;
-}
+} 크기 이걸로 맞추면 될듯
 
 @media (max-width: 1200px) {
     .wrap {

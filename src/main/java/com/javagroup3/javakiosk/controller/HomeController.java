@@ -10,4 +10,8 @@ public class HomeController { // wereqw
     public String index(){
         return "home";
     }
+    @GetMapping("/mainpage") // 메인 페이지 주소
+    public String index1() {
+        return "mainpage";
+    }
 }
