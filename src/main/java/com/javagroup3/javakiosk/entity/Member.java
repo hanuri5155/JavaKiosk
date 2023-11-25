@@ -41,6 +41,7 @@ public class Member {
                 .email(dto.getEmail())
                 .phone_number(dto.getPhone_number())
                 .age(dto.getAge())
+                .join_date(dto.getJoin_date())
                 .build();
     }
 }

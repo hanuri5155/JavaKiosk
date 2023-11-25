@@ -4,6 +4,8 @@ import com.javagroup3.javakiosk.entity.Member;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Data
 @Getter
 @Setter
@@ -23,6 +25,7 @@ public class MemberDTO {
     private String email; // 이메일
     private String phone_number; // 전화번호
     private Integer age = 0; // 나이
+    private LocalDateTime join_date; // 가입일
 
     public static MemberDTO toDTO(Member entity){
         return MemberDTO.builder()
@@ -32,6 +35,7 @@ public class MemberDTO {
                 .email(entity.getEmail())
                 .phone_number(entity.getPhone_number())
                 .age(entity.getAge())
+                .join_date(entity.getJoin_date())
                 .build();
     }
 }
