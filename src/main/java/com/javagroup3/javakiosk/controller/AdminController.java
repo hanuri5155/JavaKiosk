@@ -31,32 +31,18 @@ public class AdminController {
 
     private  final ProductService productService;
     @GetMapping("/admins/productManagement")
-    public String productFindAll(Model model){ // 제품 출력
+    public String newproductFindAll(Model model){ // 제품 출력
         List<ProductDTO> productDTOList = productService.findAll();
         model.addAttribute("productlist", productDTOList);
         return "admins/productManagement";
     }
-    @GetMapping("/admins/newProductManager")
-    public String newproductFindAll(Model model){ // 제품 출력
-        List<ProductDTO> productDTOList = productService.findAll();
-        model.addAttribute("productlist", productDTOList);
-        return "admins/newProductManager";
-    }
     @GetMapping("/admins/memberManagement")
-    public String memberFindAll(Model model){
+    public String newmemberFindAll(Model model){
         List<MemberDTO> memberDTOList = memberService.findAll();
         // 어떠한 html로 가져갈 데이터가 있을시 그 객체를 실어나르는 역할을 하는게 model
         model.addAttribute("memberlist", memberDTOList);
         return "admins/memberManagement";
     }
-    @GetMapping("/admins/newmemberManagement")
-    public String newmemberFindAll(Model model){
-        List<MemberDTO> memberDTOList = memberService.findAll();
-        // 어떠한 html로 가져갈 데이터가 있을시 그 객체를 실어나르는 역할을 하는게 model
-        model.addAttribute("memberlist", memberDTOList);
-        return "admins/newmemberManagement";
-    }
-
 
     @GetMapping("/products/{id}") // 제품 상세 조회
     public String productFindyId(@PathVariable Integer id, Model model){
