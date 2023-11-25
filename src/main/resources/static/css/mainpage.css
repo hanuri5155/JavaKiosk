@@ -2,8 +2,12 @@
 * {
     box-sizing: border-box;
 }
+html{
+    width:100%; height: auto;
+}
 body {
     font-family: 'Open Sans', sans-serif;
+
 }
 a {
     text-decoration: none;
@@ -21,20 +25,20 @@ ul {
 }
 /* Small */
 @media (min-width: 768px) {
-    .container {
+    .container ,body{
         width: 750px;
     }
 }
 /* Medium */
-@media (min-width: 992px) {
-    .container {
-        width: 970px;
+@media (min-width: 1000px) {
+    .container,body {
+        width: 980px;
     }
 }
 /* Large */
-@media (min-width: 1200px) {
-    .container {
-        width: 1170px;
+@media (min-width: 2000px) {
+    .container,body {
+        width: 1970px;
     }
 }
 /* End Global Rules */
@@ -65,22 +69,27 @@ ul {
     color: #5d5d5d;
     font-style: italic;
     text-transform: uppercase;
-    font-size: 20px;
 }
-@media (max-width: 767px) {
+@media {
     .landing-page header .logo {
         margin-top: 20px;
         margin-bottom: 20px;
+        align-items : center;
+        position: relative;
     }
 }
 .landing-page header .links {
-    display: flex;
-    align-items: center;
+    display : flex;
+    align-items : center;
+    height: 100%;
 }
-@media (max-width: 767px) {
+@media  {
     .landing-page header .links {
-        text-align: center;
-        gap: 10px;
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        gap: 20px;
     }
 }
 .landing-page header .links li {
@@ -89,7 +98,7 @@ ul {
     cursor: pointer;
     transition: .3s;
 }
-@media (max-width: 767px) {
+@media {
     .landing-page header .links li {
         margin-left: auto;
     }
@@ -121,14 +130,15 @@ ul {
 @media (max-width: 767px) {
     .landing-page .content .info {
         text-align: center;
-        margin-bottom: 15px
+        margin-bottom: 15px;
+        width: 100%;
     }
 }
 .landing-page .content .info h1 {
     color: #5d5d5d;
     font-size: 44px;
-    background-image: url("https://i.postimg.cc/65QxYYzh/001234.png");
-    display: flex;
+    background-image: url("TOMAHAWK.png");
+
 
 }
 .landing-page .content .info p {
