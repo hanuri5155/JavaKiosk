@@ -1,16 +1,16 @@
 var slideWrapper = $(".main-slider"),
-    iframes = slideWrapper.find('.embed-player'),
-    lazyImages = slideWrapper.find('.slide-image'),
+    iframes = slideWrapper.find(".embed-player"),
+    lazyImages = slideWrapper.find(".slide-image"),
     lazyCounter = 0;
 
 // POST commands to YouTube or Vimeo API
-function postMessageToPlayer(player, command){
+function postMessageToPlayer(player, command) {
     if (player == null || command == null) return;
     player.contentWindow.postMessage(JSON.stringify(command), "*");
 }
 
 // When the slide is changing
-function playPauseVideo(slick, control){
+function playPauseVideo(slick, control) {
     var currentSlide, slideType, startTime, player, video;
 
     currentSlide = slick.find(".slick-current");
@@ -21,22 +21,26 @@ function playPauseVideo(slick, control){
     if (slideType === "vimeo") {
         switch (control) {
             case "play":
-                if ((startTime != null && startTime > 0 ) && !currentSlide.hasClass('started')) {
-                    currentSlide.addClass('started');
+                if (
+                    startTime != null &&
+                    startTime > 0 &&
+                    !currentSlide.hasClass("started")
+                ) {
+                    currentSlide.addClass("started");
                     postMessageToPlayer(player, {
-                        "method": "setCurrentTime",
-                        "value" : startTime
+                        method: "setCurrentTime",
+                        value: startTime
                     });
                 }
                 postMessageToPlayer(player, {
-                    "method": "play",
-                    "value" : 1
+                    method: "play",
+                    value: 1
                 });
                 break;
             case "pause":
                 postMessageToPlayer(player, {
-                    "method": "pause",
-                    "value": 1
+                    method: "pause",
+                    value: 1
                 });
                 break;
         }
@@ -44,25 +48,25 @@ function playPauseVideo(slick, control){
         switch (control) {
             case "play":
                 postMessageToPlayer(player, {
-                    "event": "command",
-                    "func": "mute"
+                    event: "command",
+                    func: "mute"
                 });
                 postMessageToPlayer(player, {
-                    "event": "command",
-                    "func": "playVideo"
+                    event: "command",
+                    func: "playVideo"
                 });
                 break;
             case "pause":
                 postMessageToPlayer(player, {
-                    "event": "command",
-                    "func": "pauseVideo"
+                    event: "command",
+                    func: "pauseVideo"
                 });
                 break;
         }
     } else if (slideType === "video") {
         video = currentSlide.children("video").get(0);
         if (video != null) {
-            if (control === "play"){
+            if (control === "play") {
                 video.play();
             } else {
                 video.pause();
@@ -79,48 +83,54 @@ function resizePlayer(iframes, ratio) {
         playerWidth,
         height = win.height(),
         playerHeight,
-        ratio = ratio || 16/9;
+        ratio = ratio || 16 / 9;
 
-    iframes.each(function(){
+    iframes.each(function () {
         var current = $(this);
         if (width / ratio < height) {
             playerWidth = Math.ceil(height * ratio);
-            current.width(playerWidth).height(height).css({
-                left: (width - playerWidth) / 2,
-                top: 0
-            });
+            current
+                .width(playerWidth)
+                .height(height)
+                .css({
+                    left: (width - playerWidth) / 2,
+                    top: 0
+                });
         } else {
             playerHeight = Math.ceil(width / ratio);
-            current.width(width).height(playerHeight).css({
-                left: 0,
-                top: (height - playerHeight) / 2
-            });
+            current
+                .width(width)
+                .height(playerHeight)
+                .css({
+                    left: 0,
+                    top: (height - playerHeight) / 2
+                });
         }
     });
 }
 
 // DOM Ready
-$(function() {
+$(function () {
     // Initialize
-    slideWrapper.on("init", function(slick){
+    slideWrapper.on("init", function (slick) {
         slick = $(slick.currentTarget);
-        setTimeout(function(){
-            playPauseVideo(slick,"play");
+        setTimeout(function () {
+            playPauseVideo(slick, "play");
         }, 1000);
-        resizePlayer(iframes, 16/9);
+        resizePlayer(iframes, 16 / 9);
     });
-    slideWrapper.on("beforeChange", function(event, slick) {
+    slideWrapper.on("beforeChange", function (event, slick) {
         slick = $(slick.$slider);
-        playPauseVideo(slick,"pause");
+        playPauseVideo(slick, "pause");
     });
-    slideWrapper.on("afterChange", function(event, slick) {
+    slideWrapper.on("afterChange", function (event, slick) {
         slick = $(slick.$slider);
-        playPauseVideo(slick,"play");
+        playPauseVideo(slick, "play");
     });
-    slideWrapper.on("lazyLoaded", function(event, slick, image, imageSource) {
+    slideWrapper.on("lazyLoaded", function (event, slick, image, imageSource) {
         lazyCounter++;
-        if (lazyCounter === lazyImages.length){
-            lazyImages.addClass('show');
+        if (lazyCounter === lazyImages.length) {
+            lazyImages.addClass("show");
             // slideWrapper.slick("slickPlay");
         }
     });
@@ -128,16 +138,16 @@ $(function() {
     //start the slider
     slideWrapper.slick({
         // fade:true,
-        autoplaySpeed:4000,
-        lazyLoad:"progressive",
-        speed:600,
-        arrows:false,
-        dots:true,
-        cssEase:"cubic-bezier(0.87, 0.03, 0.41, 0.9)"
+        autoplaySpeed: 4000,
+        lazyLoad: "progressive",
+        speed: 600,
+        arrows: false,
+        dots: true,
+        cssEase: "cubic-bezier(0.87, 0.03, 0.41, 0.9)"
     });
 });
 
 // Resize event
-$(window).on("resize.slickVideoPlayer", function(){
-    resizePlayer(iframes, 16/9);
+$(window).on("resize.slickVideoPlayer", function () {
+    resizePlayer(iframes, 16 / 9);
 });
