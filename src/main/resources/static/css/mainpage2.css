@@ -52,9 +52,10 @@ header nav {
 header nav ul li {
     display: inline-block;
     vertical-align: top;
-    font-size: 13px;
+    font-size: 17px;
 }
 header nav ul li a {
+    margin-top: 20px;
     display: block;
     padding: 24px 15px;
 }
