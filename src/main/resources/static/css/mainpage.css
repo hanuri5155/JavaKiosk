@@ -2,12 +2,8 @@
 * {
     box-sizing: border-box;
 }
-html{
-    width:100%; height: auto;
-}
 body {
     font-family: 'Open Sans', sans-serif;
-
 }
 a {
     text-decoration: none;
@@ -25,20 +21,20 @@ ul {
 }
 /* Small */
 @media (min-width: 768px) {
-    .container ,body{
+    .container {
         width: 750px;
     }
 }
 /* Medium */
-@media (min-width: 1000px) {
-    .container,body {
-        width: 980px;
+@media (min-width: 1150px) {
+    .container {
+        width: 1120px;
     }
 }
 /* Large */
-@media (min-width: 2000px) {
-    .container,body {
-        width: 1970px;
+@media (min-width: 2200px) {
+    .container {
+        width: 2170px;
     }
 }
 /* End Global Rules */
@@ -48,7 +44,7 @@ ul {
     min-height: 80px;
     display: flex;
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
     .landing-page header {
         min-height: auto;
         display: initial;
@@ -59,7 +55,7 @@ ul {
     align-items: center;
     justify-content: space-between;
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
     .landing-page header .container {
         flex-direction: column;
         justify-content: center;
@@ -69,27 +65,22 @@ ul {
     color: #5d5d5d;
     font-style: italic;
     text-transform: uppercase;
+    font-size: 20px;
 }
-@media {
+@media (max-width: 2200px) {
     .landing-page header .logo {
         margin-top: 20px;
         margin-bottom: 20px;
-        align-items : center;
-        position: relative;
     }
 }
 .landing-page header .links {
-    display : flex;
-    align-items : center;
-    height: 100%;
+    display: flex;
+    align-items: center;
 }
-@media  {
+@media (max-width: 767px) {
     .landing-page header .links {
-        display: flex;
-        justify-content: flex-end;
-        margin: 0;
-        padding: 0;
-        gap: 20px;
+        text-align: center;
+        gap: 10px;
     }
 }
 .landing-page header .links li {
@@ -98,7 +89,7 @@ ul {
     cursor: pointer;
     transition: .3s;
 }
-@media {
+@media (max-width: 767px) {
     .landing-page header .links li {
         margin-left: auto;
     }
@@ -119,7 +110,7 @@ ul {
     gap: 140px;
     min-height: calc(100vh - 80px);
 }
-@media (max-width: 767px) {
+@media (max-width: 2200px) {
     .landing-page .content .container {
         gap: 0;
         min-height: calc(100vh - 101px);
@@ -130,15 +121,14 @@ ul {
 @media (max-width: 767px) {
     .landing-page .content .info {
         text-align: center;
-        margin-bottom: 15px;
-        width: 100%;
+        margin-bottom: 15px
     }
 }
 .landing-page .content .info h1 {
     color: #5d5d5d;
     font-size: 44px;
-    background-image: url("TOMAHAWK.png");
-
+    background-image: url("https://i.postimg.cc/65QxYYzh/001234.png");
+    display: flex;
 
 }
 .landing-page .content .info p {
