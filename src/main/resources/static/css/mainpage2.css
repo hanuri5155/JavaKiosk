@@ -20,6 +20,7 @@ body a:hover {
 .slick-slide, .slick-slide::before, .caption {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    display: flex;
 }
 .slick-slide::before {
     content: '';
