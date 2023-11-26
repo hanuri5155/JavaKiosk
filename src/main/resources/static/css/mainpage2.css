@@ -200,10 +200,10 @@ header nav ul li a:hover {
 .container .content {
     width: 90%;
     max-width: 980px;
-    margin: auto;
+    margin: 0 auto;
 }
 .container p {
-    margin-bottom: 200px;
+    margin-bottom: 40px;
 }
 @keyframes slideIn {
     from {
