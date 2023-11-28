@@ -14,8 +14,4 @@ public class HomeController { // wereqw
     public String index1() {
         return "mainpage";
     }
-    @GetMapping("/mainpagetest") // 메인 페이지 주소
-    public String index2() {
-        return "mainpagetest";
-    }
 }
