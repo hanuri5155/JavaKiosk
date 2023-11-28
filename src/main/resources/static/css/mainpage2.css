@@ -192,18 +192,75 @@ header nav ul li a:hover {
     opacity: 1;
 }
 .container {
-    background-color: #f2f2f2;
-    color: #444;
+    background-color: #B06B6B;
+    color:#532E2E;
     line-height: 1.6;
     padding: 40px 0;
     margin-top: 33%;
 }
 .container .content {
+
     width: 90%;
     max-width: 980px;
+    text-align: left;
+    padding-left: 25px;
 }
-.container p {
-    margin-bottom: 40px;
+.container .content.h1{
+    margin-bottom: 0;
+    line-height: 1.6;
+    font-size: 22px;
+    color: #532E2E;
+    text-align : left;
+    display: flex;
+    justify-content: left;
+    float:left;
+}
+.container .h2{
+    margin-top: 30px;
+    line-height: 1.6;
+    font-size: 22px;
+    color: #753D3D;
+    justify-content: left;
+}
+.container button{
+    border: 0;
+    margin-top: -1px;
+    border-radius: 20px;
+    padding: 12px 30px;
+    cursor: pointer;
+    color: #FFF;
+    background-color:#B24B4B;
+    background-position: left;
+    display: inline-block;
+}
+
+.container1 {
+    background-color: #723737;
+    color:#E9CBCBDE;
+    line-height: 1.6;
+    padding: 40px 0;
+}
+.container1 .content1{
+
+    width: 90%;
+    max-width: 980px;
+    text-align: left;
+    padding-left: 25px;
+}
+.container1 .content1.h1{
+    margin-bottom: 0;
+    line-height: 1.6;
+    font-size: 22px;
+    text-align : left;
+    display: flex;
+    justify-content: left;
+    float:left;
+}
+.container1 .h2{
+    margin-top: 30px;
+    line-height: 1.6;
+    color: #B47A7A;
+    justify-content: left;
 }
 @keyframes slideIn {
     from {
