@@ -240,14 +240,14 @@ header nav ul li a:hover {
     line-height: 1.6;
     padding: 40px 0;
 }
-.container1 .content1{
+.container1 .content{
 
     width: 90%;
     max-width: 980px;
     text-align: left;
     padding-left: 25px;
 }
-.container1 .content1.h1{
+.container1 .content.h1{
     margin-bottom: 0;
     line-height: 1.6;
     font-size: 22px;
@@ -257,6 +257,35 @@ header nav ul li a:hover {
     float:left;
 }
 .container1 .h2{
+    margin-top: 30px;
+    line-height: 1.6;
+    color: #B47A7A;
+    justify-content: left;
+}
+
+.container2 {
+    background-color: #130707;
+    color:#FFF;
+    line-height: 1.6;
+    padding: 40px 0;
+}
+.container2 .content{
+
+    width: 90%;
+    max-width: 980px;
+    text-align: left;
+    padding-left: 25px;
+}
+.container2 .content.h1{
+    margin-bottom: 0;
+    line-height: 1.6;
+    font-size: 22px;
+    text-align : left;
+    display: flex;
+    justify-content: left;
+    float:left;
+}
+.container2 .h2{
     margin-top: 30px;
     line-height: 1.6;
     color: #B47A7A;
