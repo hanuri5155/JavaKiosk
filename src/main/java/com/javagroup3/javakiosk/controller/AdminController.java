@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import java.util.List;
 
+// 컨트롤러는 HTTP 요청을 처리하는 레이어입니다.
+// 각 메소드는 Service 클래스의 메소드를 호출하여 필요한 로직을 실행하고 응답을 생성합니다.
+// 여기서는 Thymeleaf 라는 템플릿 엔진에 DTO 를 전달하여 페이지를 생성할 수 있도록 합니다.
+
 @Controller
 @RequiredArgsConstructor
 //@RequestMapping("/admins")

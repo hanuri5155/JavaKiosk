@@ -41,6 +41,9 @@ public class OrderController {
         return "order";
     }
 
+    // 아래에 있는 order, orderCancel 메소드는 POST 요청을 처리하는데, 리턴 타입이 ResponseTransfer 입니다.
+    // 이 클래스는 message 필드가 있는 간단한 클래스입니다. 이 클래스가 JSON 형태로 변환되어 프론트로 전달됩니다.
+
     /**
      *
      * @param cart JSON 타입의 장바구니 객체 배열
@@ -76,15 +79,19 @@ public class OrderController {
             OrderRecord orderRecord = OrderRecord.builder()
                     .member(member)
                     .product(product)
-                    .orderQuantity(cartItem.getQuantity())  // 적절한 방식으로 주문 수량을 가져오세요.
+                    .orderQuantity(cartItem.getQuantity())
                     .orderDate(LocalDateTime.now())
                     .build();
             orderRecords.add(orderRecord);
         }
         for(OrderRecord orderRecord : orderRecords){
+            // 일종의 캐시 영역에 엔티티 정보와 필요한 SQL 이 저장됩니다. (이것을 영속화라고 합니다.)
             entityManager.persist(orderRecord);
         }
 
+        // 위에서 수행한 동작 (SELECT, UPDATE, INSERT 와 같은 DB SQL) 을
+        // DB 로 전달합니다.
+        // https://gmlwjd9405.github.io/2019/08/07/what-is-flush.html
         entityManager.flush();
 
         return new ResponseTransfer("주문이 성공적으로 처리되었습니다.");
@@ -93,6 +100,8 @@ public class OrderController {
     @PostMapping("/order/cancel")
     @ResponseBody
     public ResponseTransfer orderCancel(@RequestBody String orderId, Authentication authentication){
+        // MemberSecurityService 클래스에서 반환한 CurrentMember 를 스프링 시큐리티의 Authentication 클래스를 통해 가져올 수 있습니다.
+
         CurrentMember currentMember = (CurrentMember) authentication.getPrincipal();
 
         if(!currentMember.getUsername().equals("admin")) {

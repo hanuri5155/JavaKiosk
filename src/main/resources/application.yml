@@ -13,7 +13,7 @@ spring:
   sql:
     init:
       platform: mysql
-      mode: always
+      # mode: always
 
   # spring data jpa 설정
   jpa:

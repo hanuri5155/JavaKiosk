@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+// 주문 기록과 관련된 서비스 클래스입니다.
 @RequiredArgsConstructor
 @Service
 public class OrderRecordService {

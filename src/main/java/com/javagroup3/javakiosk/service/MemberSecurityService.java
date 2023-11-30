@@ -17,6 +17,9 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+
+// 스프링 시큐리티에서 제공하는 UserDetailsService 인터페이스를 구현하는 클래스입니다.
+// memberRepository 를 통해 DB 에 접근하여 유저를 찾고 권한을 설정한 다음, 멤버 정보를 얻을 수 있도록 CurrentMember 인스턴스를 반환합니다.
 public class MemberSecurityService implements UserDetailsService {
     private final MemberRepository memberRepository;
 

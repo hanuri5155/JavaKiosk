@@ -9,11 +9,15 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+// 회원과 관련된 로직을 작성하는 클래스입니다.
 @RequiredArgsConstructor
 @Service
 public class MemberService {
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
+
+    // 새로운 유저를 DB 에 생성하는 코드입니다.
+    // Spring Security 에서 제공하는 passwordEncoder 로 패스워드를 암호화하여 저장합니다.
 
     public Member create(
             String username, String password, String email, String phoneNumber,

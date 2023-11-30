@@ -14,7 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-
+// 스프링 시큐리티의 설정을 수행하는 클래스입니다.
+// 권한과 인증 로직에 대해 설정합니다.
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -41,25 +42,6 @@ public class SecurityConfig {
 
 
         http.csrf(csrf -> csrf.disable());
-
-
-
-//        http
-//                .cors(Customizer.withDefaults())
-//                .csrf(Customizer.withDefaults())
-//                .authorizeHttpRequests(authorize -> authorize
-//                        .requestMatchers("/home/**").permitAll()
-//                        .requestMatchers("/admin").hasRole("ADMIN")
-//                        .anyRequest().authenticated()
-//                )
-//                .formLogin(formLogin -> formLogin
-//                        .loginPage("/members/login")
-//                )
-//                .logout(logout -> logout
-//                        .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
-//                        .logoutSuccessUrl("/")
-//                        .invalidateHttpSession(true)
-//                );
         return http.build();
     }
 
