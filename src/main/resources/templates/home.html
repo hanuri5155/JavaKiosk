@@ -1,36 +1,157 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
-    <meta charset="utf-8">
-</head>
-<body>
+    <title>mainpage</title>
 
-<div>
-    <div>
-        <h2>홈 화면</h2>
+    <link rel="stylesheet" th:href="@{http://localhost:8081/css/mainpage.css}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</head>
+
+<body>
+<header>
+    <h1>
+        <a href="#" class="logo" style="text-align: left">
+            <img src="/images/icons/logo.png" height="80" width="200"  >
+
+        </a>
+    </h1>
+    <nav>
+        <ul>
+            <li><a href="#"><b>BRAND</b></a></li>
+            <li><a href="#"><b>MENU</b></a></li>
+            <li><a href="#"><b>ORDER</b></a></li>
+            <li><a href="#"><b>MY PAGE</b></a></li>
+            <li><a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/members/login}"><b>LOGIN</b></a></li>
+            <li><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/members/logout}"><b>LOGOUT</b></a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="main-slider">
+    <div class="item image">
+        <span class="loading">Loading...</span>
+        <figure>
+            <div class="slide-image slide-media" style="background-image:url('/images/beef/TOMAHAWK.png');">
+                <img data-lazy="https://images.unsplash.com/photo-1617339847756-976edbc411e7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzA4MTE4Mg&ixlib=rb-1.2.1&q=85" class="image-entity" />
+            </div>
+            <figcaption class="caption">TOMAHAWK STEAK
+            </figcaption>
+
+        </figure>
     </div>
 
-    <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/members/signUp}">회원가입</a>
-    <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/members/login}">로그인</a>
-    <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/members/logout}">로그아웃</a>
+    <div class="item image">
+        <span class="loading">Loading...</span>
+        <figure>
+            <div class="slide-image slide-media" style="background-image:url('/images/beef/beefsteak.png');">
+                <img data-lazy="https://images.unsplash.com/photo-1617339847756-976edbc411e7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzA4MTE4Mg&ixlib=rb-1.2.1&q=85" class="image-entity" />
+            </div>
+            <figcaption class="caption">BEEF</figcaption>
+        </figure>
+    </div>
 
-<!--    <div>-->
-<!--        <div>-->
-<!--            <button type="button"-->
-<!--                    th:onclick="|location.href='@{/members/signup}'|">-->
-<!--                회원 가입-->
-<!--            </button>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--            <button onclick="location.href='items.html'"-->
-<!--                    th:onclick="|location.href='@{/members/login}'|" type="button">-->
-<!--                로그인-->
-<!--            </button>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="item image">
+        <span class="loading">Loading...</span>
+        <figure>
+            <div class="slide-image slide-media" style="background-image:url('/images/pizza/cheesepizza.png');">
+                <img data-lazy="https://images.unsplash.com/photo-1617339847756-976edbc411e7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzA4MTE4Mg&ixlib=rb-1.2.1&q=85" class="image-entity" />
+            </div>
+            <figcaption class="caption">PIZZA</figcaption>
+        </figure>
+    </div>
 
-    <hr>
+    <div class="item image">
+        <span class="loading">Loading...</span>
+        <figure>
+            <div class="slide-image slide-media" style="background-image:url('/images/pasta/creampasta.png');">
+                <img data-lazy="https://images.unsplash.com/photo-1617339847756-976edbc411e7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzA4MTE4Mg&ixlib=rb-1.2.1&q=85" class="image-entity" />
+            </div>
+            <figcaption class="caption">PASTA</figcaption>
+        </figure>
+    </div>
 
-</div>
+    <div class="item image">
+        <span class="loading">Loading...</span>
+        <figure>
+            <div class="slide-image slide-media" style="background-image:url('/images/salad/fruitsalad.png');">
+                <img data-lazy="https://images.unsplash.com/photo-1617339847756-976edbc411e7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzA4MTE4Mg&ixlib=rb-1.2.1&q=85" class="image-entity" />
+            </div>
+            <figcaption class="caption">SALAD</figcaption>
+        </figure>
+    </div>
+
+    <div class="item image">
+        <span class="loading">Loading...</span>
+        <figure>
+            <div class="slide-image slide-media" style="background-image:url('/images/dessert/Eclair.png');">
+                <img data-lazy="https://images.unsplash.com/photo-1617339847756-976edbc411e7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzA4MTE4Mg&ixlib=rb-1.2.1&q=85" class="image-entity" />
+            </div>
+            <figcaption class="caption">DESSERT</figcaption>
+        </figure>
+    </div>
+
+</section>
+
+<section class="container" >
+    <div class="content">
+        <button class="nav-link" sec:authorize="isAnonymous()" th:onclick="|location.href='@{/members/signUp}'|" style="float:left"><b>회원가입</b></button>
+        <h2 style=" float :left; margin-left:150px">
+            <b>노이만의 특별한 혜택, 노이 멤버쉽</b>
+        </h2><br><br><br><br>
+        <button class="nav-link" sec:authorize="isAnonymous()" th:onclick="|location.href='@{/members/login}'|" style="float:left"><b>로그인</b></button>
+        <h2 style="font-size:14pt; margin-left:260px; margin-top:5px">
+            노이 회원이세요? 로그인을 통해 리워드를 확인하세요.<br>
+            회원이 아니세요? 가입을 통해 리워드 혜택을 즐기세요.
+        </h2><br><br><br>
+        <h1 style="color:#121010; float:left;">NOI<br>
+            MEMBERSHIP<br>
+            BENEFIT</h1>
+        <h2 style="float:left; margin-left:100px;font-size:14pt;">
+            1 : 와인 2잔 10000원<br>
+            2 : 1년 1회 생일 쿠폰<br>
+            3 : 스테이크 할인 쿠폰(1만원 상당)<br>
+            4 : 10%%할인 또는 3% 적립
+        </h2><br><br><br><br>
+
+
+    </div>
+</section>
+
+<section class="container1">
+    <div class="content">
+        <h1 style="color: #E9CBCBDE;">
+            가을 한정 프로모션
+        </h1><br>
+        <h2 style="font-size:14pt; color:#B47A7A;">
+            1. 10만원 이상 식사시 2만원 상당의 쿠폰 증정<br>
+            2. 인스타 스토리에 노이 레스토랑 태그 후 보여주시면 디저트 브라우니 케이크 무료 증정<br>
+            3. 15만원 이상 식사시 5만원 상당의 와인 무료 증정
+        </h2>
+
+    </div><br>
+
+</section>
+
+<section class="container2">
+    <div class ="content">
+        <h1 style="font-size:10pt; float:left;">
+            대표이사 : 윤한울<br>주소 : 부산 부산진구 엄광로 176<br>
+            사업자등록번호 : 300-1004-1234<br>
+            대표번호 1577-0000 / 딜리버리 주문번호 1677-1000
+        </h1>
+        <h1 style="font-size:10pt; float:left; margin-left:350px;">
+            홈페이지 관련 문의  051-890-1234<br><br>
+            상담시간 : 월-금 10:00 ~ 17:00(토/일 휴무)
+        </h1><br><br>
+    </div>
+</section>
+
+
+
+
+<script src="/js/mainpagetest.js"></script>
 </body>
+
 </html>

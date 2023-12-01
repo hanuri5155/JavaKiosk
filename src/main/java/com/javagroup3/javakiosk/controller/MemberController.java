@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/members")
 public class MemberController {
 
-    // private final MemberRepository memberRepository;
-    // private final MemberSecurityService memberSecurityService;
-
     private final MemberService memberService;
 
     @GetMapping("/login")
