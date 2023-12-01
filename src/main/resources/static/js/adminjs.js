@@ -38,6 +38,11 @@ ul.addEventListener('click', e => {
         })
 })
 
+// 주문 관리 페이지 새로고침
+setInterval(function () {
+    location.reload();
+}, 4000); // 4000 밀리초 = 4초
+
 // SUB MENU
 if (elm(".has-submenu")) {
     for (var i = 0, len = elm(".has-submenu").length; i < len; i++) {

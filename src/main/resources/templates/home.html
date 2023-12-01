@@ -96,11 +96,11 @@
 
 <section class="container" >
     <div class="content">
-        <button class="nav-link" sec:authorize="isAnonymous()" th:onclick="|location.href='@{/members/signUp}'|" style="float:left"><b>회원가입</b></button>
+        <button th:onclick="|location.href='@{/members/signUp}'|" style="float:left"><b>회원가입</b></button>
         <h2 style=" float :left; margin-left:150px">
             <b>노이만의 특별한 혜택, 노이 멤버쉽</b>
         </h2><br><br><br><br>
-        <button class="nav-link" sec:authorize="isAnonymous()" th:onclick="|location.href='@{/members/login}'|" style="float:left"><b>로그인</b></button>
+        <button th:onclick="|location.href='@{/members/login}'|" style="float:left"><b>로그인</b></button>
         <h2 style="font-size:14pt; margin-left:260px; margin-top:5px">
             노이 회원이세요? 로그인을 통해 리워드를 확인하세요.<br>
             회원이 아니세요? 가입을 통해 리워드 혜택을 즐기세요.

@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <title>주문 관리</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/adminstyle.css}">
-    <script>
-        setInterval(function () {
-            location.reload();
-        }, 4000);
-    </script>
 </head>
 <body>
 <div class="container">
@@ -70,9 +65,7 @@
                             <div class="cell cell-100 text-center" th:text="${orderRecord.orderQuantity}"></div>
                             <div class="cell cell-100p text-center" th:text="${orderRecord.orderDate}"></div>
                             <div class="cell cell-100 text-center">
-                                <button class="btnRemove fa fa-remove bg-1 text-fff" th:classappend="cancel"
-                                        onclick='return confirm("정말로 취소 하시겠습니까?")'> 주문 취소
-                                </button>
+                                <button class="btnRemove fa fa-remove bg-1 text-fff" th:classappend="cancel"> 주문 취소</button>
                             </div>
                         </li>
                     </ul>
