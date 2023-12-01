@@ -32,7 +32,7 @@ public class SecurityConfig {
         http
                 .formLogin(formLogin -> formLogin
                         .loginPage("/members/login")
-                        .defaultSuccessUrl("/order")
+                        .defaultSuccessUrl("/")
                 )
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
