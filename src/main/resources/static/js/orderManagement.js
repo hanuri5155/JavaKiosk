@@ -1,6 +1,6 @@
-// setInterval(function () {
-//     location.reload();
-// }, 4000); // 4000 밀리초 = 4초
+setInterval(function () {
+    location.reload();
+}, 4000); // 4000 밀리초 = 4초
 
 const table = document.getElementById('orderTable');
 let cancelBtn = document.getElementsByClassName('.cancel');
