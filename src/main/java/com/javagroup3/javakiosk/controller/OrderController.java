@@ -34,7 +34,7 @@ public class OrderController {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @GetMapping("/order") // 메인 페이지 주소
+    @GetMapping("/order") // 주문 페이지 주소
     public String order(Model model){
         List<Product> productList = this.productService.getList();
         model.addAttribute("productList", productList);

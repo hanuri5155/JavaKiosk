@@ -13,10 +13,10 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class ProductService {
+public class ProductService { // 제품 목록을 DB 에서 불러와주는 클래스
     private final ProductRepository productRepository;
 
-    public List<ProductDTO> findAll() {
+    public List<ProductDTO> findAll() { // 모든 항목 조회
         List<Product> productEntityList = productRepository.findAll();
         List<ProductDTO> productDTOList = new ArrayList<>();
         for (Product productEntity: productEntityList) {
@@ -25,7 +25,7 @@ public class ProductService {
         return productDTOList;
     }
 
-    public ProductDTO findById(Integer id) {
+    public ProductDTO findById(Integer id) { // 제품 아이디 조회
         Optional<Product> optionalProduct = productRepository.findById(id);
         if(optionalProduct.isPresent()){
             return ProductDTO.toDTO(optionalProduct.get());

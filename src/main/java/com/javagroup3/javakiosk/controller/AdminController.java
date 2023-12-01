@@ -18,7 +18,6 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-//@RequestMapping("/admins")
 public class AdminController {
     private  final MemberService memberService;
     private final OrderRecordService orderRecordService;
