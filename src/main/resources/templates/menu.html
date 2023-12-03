@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+          crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{http://localhost:8081/css/menu.css}">
+</head>
+<body>
+<!--<section>
+
+</section>-->
+<header>
+    <h1>
+        <a th:href="@{/}" class="logo" style="text-align: left">
+            <img src="/images/icons/logo.png" height="80" width="200" alt="">
+        </a>
+    </h1>
+    <nav>
+        <ul>
+            <li><a href="#"><b>BRAND</b></a></li>
+            <li><a href="#"><b>MENU</b></a></li>
+            <li><a th:href="@{/order}"><b>ORDER</b></a></li>
+            <li><a href="#"><b>MY PAGE</b></a></li>
+            <li><a sec:authorize="isAnonymous()" th:href="@{/members/login}"><b>LOGIN</b></a></li>
+            <li><a sec:authorize="isAuthenticated()" th:href="@{/members/logout}"><b>LOGOUT</b></a></li>
+        </ul>
+    </nav>
+</header>
+<section id="our_menu" class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page_title text-center mb-4">
+                    <h1>our menu</h1>
+                    <div class="single_line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <ul class="nav nav-tabs menu_tab mb-4" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="beef-tab" data-toggle="tab" href="#beef" role="tab">Beef</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pizza-tab" data-toggle="tab" href="#pizza" role="tab">Pizza</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pasta-tab" data-toggle="tab" href="#pasta" role="tab">Pasta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="risotto-tab" data-toggle="tab" href="#risotto" role="tab">Risotto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="salad-tab" data-toggle="tab" href="#salad" role="tab">Salad</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="dessert-tab" data-toggle="tab" href="#dessert" role="tab">Dessert</a>
+                </li>
+            </ul>
+        </div>
+        <div class="formBody row">
+            <div class="row2">
+                <div class="tab-content col-lg-12" id="myTabContent">
+                    <div class="tab-pane fade show active" id="beef" role="tabpanel" aria-labelledby="beef-tab">
+                        <div class="row">
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/beef/TOMAHAWK.png}" alt="TOMAHAWK">
+                                    <div class="menu_content">
+                                        <h4>토마호크 <span>₩57,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/beef/Porknecksteak.png}" alt="Porknecksteak">
+                                    <div class="menu_content">
+                                        <h4>목살 스테이크 <span>₩33,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/beef/barbecueporkribs.png}" alt="barbecueporkribs">
+                                    <div class="menu_content">
+                                        <h4>바베큐 폭립 <span>₩27,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/beef/foiegras.png}" alt="foiegras">
+                                    <div class="menu_content">
+                                        <h4>푸아그라 <span>₩99,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/beef/beefsteak.png}" alt="beefsteak">
+                                    <div class="menu_content">
+                                        <h4>소고기 스테이크 <span>₩45,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pizza" role="tabpanel" aria-labelledby="pizza-tab">
+                        <div class="row">
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/pizza/cheesepizza.png}" alt="cheesepizza">
+                                    <div class="menu_content">
+                                        <h4>치즈 피자 <span>₩23,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/pizza/hawaiianpizza.png}" alt="hawaiianpizza">
+                                    <div class="menu_content">
+                                        <h4>하와이안 피자 <span>₩23,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/pizza/seafoodpizza.png}" alt="seafoodpizza">
+                                    <div class="menu_content">
+                                        <h4>해산물 피자 <span>₩25,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pasta" role="tabpanel" aria-labelledby="pasta-tab">
+                        <div class="row">
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/pasta/creampasta.png}" alt="creampasta">
+                                    <div class="menu_content">
+                                        <h4>크림 파스타 <span>₩16,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/pasta/salmonpasta.png}" alt="salmonpasta">
+                                    <div class="menu_content">
+                                        <h4>연어 파스타 <span>₩20,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/pasta/tomatopasta.png}" alt="tomatopasta">
+                                    <div class="menu_content">
+                                        <h4>토마토 파스타 <span>₩16,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/pasta/inkpasta.png}" alt="inkpasta">
+                                    <div class="menu_content">
+                                        <h4>먹물 파스타 <span>₩18,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="risotto" role="tabpanel" aria-labelledby="risotto-tab">
+                        <div class="row">
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/risotto/beefrisotto.png}" alt="beefrisotto">
+                                    <div class="menu_content">
+                                        <h4>비프 리조또 <span>₩20,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/risotto/creamrisotto.png}" alt="creamrisotto">
+                                    <div class="menu_content">
+                                        <h4>크림 리조또 <span>₩16,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/risotto/seaurchinroerisotto.png}" alt="seaurchinroerisotto">
+                                    <div class="menu_content">
+                                        <h4>성게알 리조또 <span>₩18,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/risotto/tomatorosotto.png}" alt="tomatorosotto">
+                                    <div class="menu_content">
+                                        <h4>토마토 리조또 <span>₩16,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/risotto/seafoodrisotto.png}" alt="seafoodrisotto">
+                                    <div class="menu_content">
+                                        <h4>해산물 리조또 <span>₩20,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="salad" role="tabpanel" aria-labelledby="salad-tab">
+                        <div class="row">
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/salad/fruitsalad.png}" alt="fruitsalad">
+                                    <div class="menu_content">
+                                        <h4>과일 샐러드 <span>₩13,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/salad/salmonsalad.png}" alt="salmonsalad">
+                                    <div class="menu_content">
+                                        <h4>연어 샐러드 <span>₩15,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/salad/Riccottasalad.png}" alt="Riccottasalad">
+                                    <div class="menu_content">
+                                        <h4>리코타 샐러드 <span>₩13,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/salad/smokedducksalad.png}" alt="smokedducksalad">
+                                    <div class="menu_content">
+                                        <h4>훈제오리 샐러드 <span>₩15,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="dessert" role="tabpanel" aria-labelledby="dessert-tab">
+                        <div class="row">
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/dessert/Eclair.png}" alt="Eclair">
+                                    <div class="menu_content">
+                                        <h4>에클레어 <span>₩12,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/dessert/Millefeuille.png}" alt="Millefeuille">
+                                    <div class="menu_content">
+                                        <h4>밀푀유 <span>₩9,900</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/dessert/souffle.png}" alt="souffle">
+                                    <div class="menu_content">
+                                        <h4>수플레 <span>₩14,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{http://localhost:8081/images/dessert/montblanc.png}" alt="montblanc">
+                                    <div class="menu_content">
+                                        <h4>몽블랑 <span>₩14,000</span></h4>
+                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container2">
+    <div class ="content">
+        <h1 style="font-size:10pt; float:left;">
+            대표이사 : 윤한울<br>주소 : 부산 부산진구 엄광로 176<br>
+            사업자등록번호 : 300-1004-1234<br>
+            대표번호 1577-0000 / 딜리버리 주문번호 1677-1000
+        </h1>
+        <h1 style="font-size:10pt; float:right;">
+            홈페이지 관련 문의  051-890-1234<br><br>
+            상담시간 : 월-금 10:00 ~ 17:00(토/일 휴무)
+        </h1><br><br>
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

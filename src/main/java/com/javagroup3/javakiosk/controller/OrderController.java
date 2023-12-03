@@ -41,6 +41,12 @@ public class OrderController {
         return "order";
     }
 
+    @GetMapping("/neworder") // 주문 페이지 주소
+    public String neworder(Model model){
+        List<Product> productList = this.productService.getList();
+        model.addAttribute("productList", productList);
+        return "neworder";
+    }
     // 아래에 있는 order, orderCancel 메소드는 POST 요청을 처리하는데, 리턴 타입이 ResponseTransfer 입니다.
     // 이 클래스는 message 필드가 있는 간단한 클래스입니다. 이 클래스가 JSON 형태로 변환되어 프론트로 전달됩니다.
 

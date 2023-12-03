@@ -266,7 +266,7 @@ header nav ul li a:hover {
 .container2 {
     background-color: #130707;
     color:#FFF;
-    line-height: 1.6;
+    line-height: 2;
     padding: 40px 0;
 }
 .container2 .content{
@@ -278,9 +278,10 @@ header nav ul li a:hover {
 }
 .container2 .content.h1{
     margin-bottom: 0;
-    line-height: 1.6;
+    margin-block-end: 8px;
+    line-height: 16px;
     font-size: 22px;
-    text-align : left;
+    font-weight: 500;
     display: flex;
     justify-content: left;
     float:left;
