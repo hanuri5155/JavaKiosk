@@ -3,22 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>ProductDetail</title>
+    <link rel="stylesheet" th:href="@{http://localhost:8081/css/adminstyle.css}">
 </head>
 <body>
-<table>
-    <tr>
-        <th>id</th>
-        <th>is_orderable</th>
-        <th>price</th>
-        <th>name</th>
-    </tr>
-    <tr>
-        <td th:text="${products.product_id}"></td>
-        <td th:text="${products.is_orderable}"></td>
-        <td th:text="${products.price}"></td>
-        <td th:text="${products.name}"></td>
-    </tr>
-</table>
-<a th:href="@{|/products/productUpdate/${products.product_id}|}">정보 수정하기</a>
+<div class="container">
+    <!--     SIDE AREA -->
+    <div class="sideArea">
+        <div class="avatar">
+            <img alt=""
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCNOdyoIXDDBztO_GC8MFLmG_p6lZ2lTDh1ZnxSDawl1TZY_Zw">
+            <div class="avatarName">Welcome,<br>admin</div>
+        </div>
+        <ul class="sideMenu">
+            <li><a th:href="@{/admins}"><span class="fa fa-table"></span>ORDER</a></li>
+            <li><a class="has-submenu" th:href="@{/admins/productManagement}"><span class="fa fa-table"></span>PRODUCT</a></li>
+            <li><a th:href="@{/admins/memberManagement}"><span class="fa fa-table"></span>USER</a></li>
+        </ul>
+    </div>
+    <!--     SIDE AREA -->
+    <div class="mainArea">
+        <!-- BEGIN NAV -->
+        <nav class="navTop row">
+            <div class="menuIcon fl"><span class="fa fa-bars"></span></div>
+            <div class="account fr">
+                <div class="name has-submenu">admin<span class="fa fa-angle-down"></span></div>
+                <ul class="accountLinks submenu">
+                    <li><a th:href="@{/}">홈페이지</a></li>
+                    <li><a th:href="@{/members/logout}">로그아웃<span class="fa fa-sign-out fr"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- END NAV -->
+        <!-- CONTAINER  -->
+        <div class="mainContent">
+            <!-- DETAIL FORM -->
+            <form th:action="@{|/products/${products.product_id}|}" class="form" enctype="multipart/form-data" method="POST">
+                <div class="formHeader row">
+                    <h2 class="text-1 fl">제품 상세</h2>
+                    <div class="fr">
+                        <input type="submit" value="정보수정">
+                    </div>
+                </div>
+                <div class="formBody row">
+                    <div class="column s-6">
+                        <label class="inputGroup">
+                            <span>제품 번호</span>
+                            <span><input name="product_id" type="text" th:value="${products.product_id}" disabled></span>
+                        </label>
+                        <label class="inputGroup">
+                            <span>이름</span>
+                            <span><input name="name" type="text" th:value="${products.name}"></span>
+                        </label>
+                        <label class="inputGroup">
+                            <span>가격</span>
+                            <span><input name="price" type="text" th:value="${products.price}"></span>
+                        </label>
+                    </div>
+                    <div class="column s-6">
+                        <label class="inputGroup">
+                            <span>Image</span>
+                            <input name="img" type="hidden" value="src">
+                            <span>
+                                <input multiple name="img" onchange="getImg(this)" type="file">
+                                <img alt="" src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg" width="50">
+                            </span>
+                        </label>
+                    </div>
+                    <div class="column">
+                        <label class="inputGroup">
+                            <span>Description</span>
+                            <textarea name="description" th:text="${products.description}"></textarea>
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <!-- END DETAIL FORM  -->
+        </div>
+        <!-- END CONTAINER  -->
+    </div>
+</div>
+<script th:src="@{http://localhost:8081/js/adminjs.js}"></script>
 </body>
 </html>

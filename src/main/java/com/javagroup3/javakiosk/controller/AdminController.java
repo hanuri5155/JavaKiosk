@@ -47,7 +47,7 @@ public class AdminController {
         return "admins/memberManagement";
     }
 
-    @GetMapping("/products/{id}") // 제품 상세 조회
+    @GetMapping("/products/{id}") // 제품 상세 조회 및 수정
     public String productFindyId(@PathVariable Integer id, Model model){
         ProductDTO productDTO = productService.findById(id);
         model.addAttribute("products", productDTO);
@@ -61,7 +61,7 @@ public class AdminController {
         return "products/productUpdate";
     }
 
-    @PostMapping("/products/productUpdate/{id}")
+    @PostMapping("/products/{id}")
     public String productUpdate(@ModelAttribute ProductDTO productDTO){
         productService.ubdate(productDTO);
         return "redirect:/products/" + productDTO.getProduct_id();
