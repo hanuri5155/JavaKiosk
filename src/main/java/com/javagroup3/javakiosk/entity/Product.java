@@ -14,7 +14,7 @@ import lombok.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int product_id; // 회원 아이디
+    private int product_id; // 제품 아이디
 
     private String name; // 제품 이름
     private int price; // 제품 가격
