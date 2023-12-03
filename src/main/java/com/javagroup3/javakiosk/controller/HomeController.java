@@ -10,4 +10,6 @@ public class HomeController {
     public String index(){
         return "home";
     }
+    @GetMapping("/orderpage")
+    public String index1(){return "orderpage";}
 }
