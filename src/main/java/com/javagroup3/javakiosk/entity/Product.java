@@ -19,6 +19,7 @@ public class Product {
     private String name; // 제품 이름
     private int price; // 제품 가격
     private boolean is_orderable; // 주문 가능 여부
+    private String description; // 제품 설명
 
     @PrePersist
     protected void onCreate() {
@@ -32,6 +33,7 @@ public class Product {
                 .name(dto.getName())
                 .price(dto.getPrice())
                 .is_orderable(dto.getIs_orderable())
+                .description(dto.getDescription())
                 .build();
     }
 }
