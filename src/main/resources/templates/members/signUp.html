@@ -3,26 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <title>signUp</title>
-        <link rel="stylesheet" th:href="@{http://localhost:8081/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
     </head>
     <body class="align">
         <div class="grid">
             <div style="text-align: center; padding-bottom: 50px;">
-                <img  style="width: 300px; height: 120px; " src="http://localhost:8081/images/icons/logo.png" alt="gg">
+                <img  style="width: 300px; height: 120px; " src="/images/icons/logo.png" alt="gg">
             </div>
             <form action="" th:action method="post" th:object="${member}" class="form login">
                 <div class="form__field">
-                    <label for="email"><img style="width: 16px;" src="http://localhost:8081/images/icons/icons8-email-30.png" alt="gg"></label>
+                    <label for="email"><img style="width: 16px;" src="/images/icons/icons8-email-30.png" alt="gg"></label>
                     <input autocomplete="email" id="email" type="text" th:field="*{email}" class="form-control" placeholder="Email" required>
                 </div>
 
                 <div class="form__field">
-                    <label for="username"><img style="width: 16px;" src="http://localhost:8081/images/icons/icons8-user-30.png" alt="gg"><span class="hidden">Username</span></label>
+                    <label for="username"><img style="width: 16px;" src="/images/icons/icons8-user-30.png" alt="gg"><span class="hidden">Username</span></label>
                     <input autocomplete="username" id="username" type="text" th:field="*{username}" class="form-control" placeholder="Username" required>
                 </div>
 
                 <div class="form__field">
-                    <label for="password"><img style="width: 16px;" src="http://localhost:8081/images/icons/icons8-lock-30.png" alt="gg"><span class="hidden">Password</span></label>
+                    <label for="password"><img style="width: 16px;" src="/images/icons/icons8-lock-30.png" alt="gg"><span class="hidden">Password</span></label>
                     <input id="password" type="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
 
@@ -33,7 +33,7 @@
 
             <p class="text--center">이미 가입하셨다면?
                 <a th:href="@{/members/login}">로그인</a>
-                <img src="http://localhost:8081/images/icons/icons8-arrow-16.png" alt="gg">
+                <img src="/images/icons/icons8-arrow-16.png" alt="gg">
             </p>
         </div>
     </body>

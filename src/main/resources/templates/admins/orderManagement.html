@@ -54,7 +54,7 @@
                         <div class="cell cell-150 text-center text-fff">제품명</div>
                         <div class="cell cell-100 text-center text-fff">주문 수량</div>
                         <div class="cell cell-100p text-center text-fff">주문일</div>
-                        <div class="cell cell-100 text-center text-fff">취소</div>
+                        <div class="cell cell-150 text-center text-fff">취소</div>
                     </div>
                     <!--   BEGIN LOOP -->
                     <ul id="orderTable">
@@ -64,7 +64,7 @@
                             <div class="cell cell-150 text-center" th:text="${orderRecord.product.name}"></div>
                             <div class="cell cell-100 text-center" th:text="${orderRecord.orderQuantity}"></div>
                             <div class="cell cell-100p text-center" th:text="${orderRecord.orderDate}"></div>
-                            <div class="cell cell-100 text-center">
+                            <div class="cell cell-150 text-center">
                                 <button class="btnRemove fa fa-remove bg-1 text-fff" th:classappend="cancel"> 주문 취소</button>
                             </div>
                         </li>
@@ -85,6 +85,6 @@
         <!-- END CONTAINER  -->
     </div>
 </div>
-<script th:src="@{http://localhost:8081/js/adminjs.js}"></script>
+<script th:src="@{/js/adminjs.js}"></script>
 </body>
 </html>
