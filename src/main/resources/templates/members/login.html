@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>login</title>
-        <title>login</title>
-        <link rel="stylesheet" th:href="@{/css/style.css}">
-    </head>
-    <body class="align">
-        <div class="grid">
-            <div style="text-align: center; padding-bottom: 50px;">
-                <img  style="width: 300px; height: 120px; " src="/images/icons/logo.png" alt="gg">
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <title>login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="align">
+<div class="grid">
+    <div style="text-align: center; padding-bottom: 50px;">
+        <img  style="width: 300px; height: 120px; " src="/images/icons/logo.png" alt="gg">
+    </div>
 
-            <form action="" th:action method="post" class="form login">
-                <div class="form__field">
-                    <label for="username"><img style="width: 16px;" src="/images/icons/icons8-user-30.png" alt="gg"><span class="hidden">Username</span></label>
-                    <input autocomplete="username" id="username" type="text" name="username" class="form-control" placeholder="Username" required>
-                </div>
-
-                <div class="form__field">
-                    <label for="password"><img style="width: 16px;" src="/images/icons/icons8-lock-30.png" alt="gg"><span class="hidden">Password</span></label>
-                    <input id="password" type="password" name="password" class="form-control" placeholder="Password" required>
-                </div>
-
-                <div class="form__field">
-                    <input type="submit" value="로그인">
-                </div>
-            </form>
-
-            <p class="text--center">회원이 아니신가요?
-                <a th:href="@{/members/signUp}">회원 가입</a>
-                <img src="/images/icons/icons8-arrow-16.png" alt="gg">
-            </p>
+    <form action="" th:action method="post" class="form login">
+        <div class="form__field">
+            <label for="username"><img style="width: 16px;" src="/images/icons/icons8-user-30.png" alt="gg"><span class="hidden">Username</span></label>
+            <input autocomplete="username" id="username" type="text" name="username" class="form-control" placeholder="Username" required>
         </div>
-    </body>
+
+        <div class="form__field">
+            <label for="password"><img style="width: 16px;" src="/images/icons/icons8-lock-30.png" alt="gg"><span class="hidden">Password</span></label>
+            <input id="password" type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+
+        <div class="form__field">
+            <input type="submit" value="로그인">
+        </div>
+    </form>
+
+    <p class="text--center">회원이 아니신가요?
+        <a th:href="@{/members/signUp}">회원 가입</a>
+        <img src="/images/icons/icons8-arrow-16.png" alt="gg">
+    </p>
+</div>
+</body>
 </html>

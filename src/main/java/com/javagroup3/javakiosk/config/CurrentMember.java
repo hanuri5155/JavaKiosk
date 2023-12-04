@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-
 import java.util.Collection;
 
 // Spring Security 의 UserDetails 인터페이스를 구현한 User 클래스를 상속하는 클래스입니다.

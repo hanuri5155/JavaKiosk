@@ -4,7 +4,6 @@ import com.javagroup3.javakiosk.entity.Member;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.Optional;
 
 // Member 엔티티 타입의 JPA 를 상속받은 인터페이스입니다.

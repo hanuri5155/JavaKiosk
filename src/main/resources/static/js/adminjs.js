@@ -77,8 +77,47 @@ if (elm(".menuIcon")) {
     };
 }
 
+// 이미지 input
+function getImg(input) {
+    // 파일이 선택되었는지 확인
+    if (input.files && input.files[0]) {
+        // 파일이 선택되었을 경우, 이미지 경로를 hidden input에 설정
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementsByName("image_path")[0].value = e.target.result;
+
+            // 이미지 미리보기 업데이트
+            var imagePreview = document.getElementById("imagePreview");
+            imagePreview.innerHTML = ""; // 기존의 이미지 제거
+
+            var img = document.createElement("img");
+            img.setAttribute("src", e.target.result);
+            img.style.width = "220px";
+            //img.style.verticalAlign = "top";
+            imagePreview.appendChild(img);
+        };
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        // 파일이 선택되지 않았을 경우, hidden input의 값을 초기화
+        document.getElementsByName("image_path")[0].value = "";
+
+        // 이미지 미리보기 초기화
+        var imagePreview = document.getElementById("imagePreview");
+        imagePreview.innerHTML = "";
+    }
+}
+
+function saveData() {
+    // 저장 버튼 클릭 시 서버에 데이터 전송
+    var imagePath = document.getElementsByName("image_path")[0].value;
+    // 이미지 경로가 비어있으면 기존의 이미지를 사용하도록 처리
+    if (imagePath === "") {
+        imagePath = "${products.image_path}";
+    }
+}
+
 // INPUT IMG
-function getImg(x) {
+/*function getImg(x) {
     if (x.files.length > 0) {
         var fr = new FileReader();
         var imgSrc = null;
@@ -96,7 +135,7 @@ function getImg(x) {
         };
         fr.readAsDataURL(x.files[0]);
     }
-}
+}*/
 
 // NEW INPUT
 for (var i = 0, len = elm(".btnNewInput").length; i < len; i++) {

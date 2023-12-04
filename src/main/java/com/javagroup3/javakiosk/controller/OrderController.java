@@ -5,7 +5,6 @@ import com.google.gson.reflect.TypeToken;
 import com.javagroup3.javakiosk.ResponseTransfer;
 import com.javagroup3.javakiosk.config.CurrentMember;
 import com.javagroup3.javakiosk.dto.Cart;
-import com.javagroup3.javakiosk.dto.ProductDTO;
 import com.javagroup3.javakiosk.entity.Member;
 import com.javagroup3.javakiosk.entity.OrderRecord;
 import com.javagroup3.javakiosk.entity.Product;
@@ -23,7 +22,6 @@ import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -34,14 +32,14 @@ public class OrderController {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @GetMapping("/order") // 주문 페이지 주소
+    @GetMapping("/order") // 주문 페이지
     public String order(Model model){
         List<Product> productList = this.productService.getList();
         model.addAttribute("productList", productList);
         return "order";
     }
 
-    @GetMapping("/neworder") // 주문 페이지 주소
+    @GetMapping("/neworder") // 주문 페이지
     public String neworder(Model model){
         List<Product> productList = this.productService.getList();
         model.addAttribute("productList", productList);
@@ -51,7 +49,6 @@ public class OrderController {
     // 이 클래스는 message 필드가 있는 간단한 클래스입니다. 이 클래스가 JSON 형태로 변환되어 프론트로 전달됩니다.
 
     /**
-     *
      * @param cart JSON 타입의 장바구니 객체 배열
      * @param authentication Spring Security 의 인증 관련 객체.
      */

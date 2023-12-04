@@ -17,7 +17,7 @@ public class MemberService {
     private final PasswordEncoder passwordEncoder;
 
     // 새로운 유저를 DB 에 생성하는 코드입니다.
-    // Spring Security 에서 제공하는 passwordEncoder 로 패스워드를 암호화하여 저장합니다.
+    // Spring Security 에서 제공하는 passwordEncoder로 패스워드를 암호화하여 저장합니다.
 
     public Member create(
             String username, String password, String email, String phoneNumber,

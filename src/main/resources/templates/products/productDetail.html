@@ -41,7 +41,7 @@
                 <div class="formHeader row">
                     <h2 class="text-1 fl">제품 상세</h2>
                     <div class="fr">
-                        <input type="submit" value="정보수정">
+                        <button type="submit" class="btnSave bg-1 text-fff text-bold fr">정보 수정</button>
                     </div>
                 </div>
                 <div class="formBody row">
@@ -62,21 +62,23 @@
                             <label class="inputGroup">
                                 <span>판매 가능 여부</span>
                                 <span class="cell cell-100 text-center">
-                                    <input class="status" name="status" type="hidden" th:value="${products.is_orderable}">
-                                    <input class="btnSwitch status" name="status" type="checkbox">
+                                    <input type="hidden" th:value="${products.is_orderable}" name="is_orderable">
+                                    <input class="btnSwitch status" name="status" type="checkbox" th:checked="${products.is_orderable}">
                                 </span>
                             </label>
                         </div>
                     </div>
-                    <div class="column s-6">
-                        <label class="inputGroup">
-                            <span>Image</span>
-                            <input name="img" type="hidden" value="src">
-                            <span>
-                                <input multiple name="img" onchange="getImg(this)" type="file">
-                                <img alt="" src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg" width="50">
-                            </span>
-                        </label>
+                    <div class="column s-6" style="text-align: center">
+                        <div id="imagePreview">
+                            <label class="inputGroup" style="display: inline-block">
+                                <input type="hidden" name="image_path" th:value="${products.image_path}">
+                                <img alt="" th:src="${products.image_path}" width="220" style="text-align: left"><br>
+                            </label>
+                        </div>
+                        <span style="display: inline-block">
+                            <input multiple name="img" onchange="getImg(this)" type="file" style="margin-bottom: 10px"><br>
+                            <button type="button" onclick="saveData()" class="btnSave bg-1 text-fff text-bold fc">이미지 저장</button>
+                        </span>
                     </div>
                     <div class="column">
                         <label class="inputGroup">

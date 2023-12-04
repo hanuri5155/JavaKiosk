@@ -427,6 +427,9 @@ strike {
 .fr {
     float: right;
 }
+.fc {
+    display:inline-block
+}
 
 @media (min-width: 481px) {
     .fl-x {

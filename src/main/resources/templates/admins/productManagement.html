@@ -75,8 +75,7 @@
                             <!--rest api : 주소만으로 어떤 자원인지 식별하는 주소 체계-->
                             <div class="cell cell-100p"><a th:href="@{|/products/${product.product_id}|}"  th:text="${product.name}"></a></div>
                             <div class="cell cell-100 text-center">
-                                <input class="status" name="status" type="hidden" value="0">
-                                <input class="btnSwitch status" name="status" type="checkbox">
+                                <input class="btnSwitch status" name="status" type="checkbox" th:checked="${product.is_orderable}">
                             </div>
                             <div class="cell cell-100 text-center">
                                 <a class="btnRemove fa fa-remove bg-1 text-fff" href=""

@@ -1,7 +1,6 @@
 package com.javagroup3.javakiosk.dto;
 
 import com.javagroup3.javakiosk.entity.Product;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.*;
 
 @Data
