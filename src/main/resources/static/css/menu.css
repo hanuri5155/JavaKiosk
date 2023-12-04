@@ -16,7 +16,7 @@ body a:hover {
     background-color: #130707;
     color:#FFF;
     line-height: 2;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 .container2 .content{
 
@@ -42,7 +42,7 @@ body a:hover {
 }
 
 header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
