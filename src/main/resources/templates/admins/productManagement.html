@@ -54,7 +54,10 @@
                         <div class="cell cell-100 text-center text-fff">가격</div>
                         <div class="cell cell-100p text-fff">이름</div>
                         <div class="cell cell-100 text-center text-fff">
-                            <input class="checkbox checkAll" name="statusAll" target=".status" type="checkbox"></div>
+                            <label>
+                                <input class="checkbox checkAll" name="statusAll" target=".status" type="checkbox">
+                            </label>
+                        </div>
                         <div class="cell cell-100 text-center text-fff">삭제</div>
                     </div>
                     <!--   BEGIN LOOP -->
@@ -62,9 +65,11 @@
                         <li class="row" th:each="product: ${productlist}">
                             <div class="cell cell-100 text-center" th:text="${product.product_id}"></div>
                             <div class="cell cell-150 text-center">
-                                <a href=""><img alt=""
-                                                src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg"
-                                                width="50"></a>
+                                <a th:href="@{|/products/${product.product_id}|}">
+                                    <img alt=""
+                                         src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg"
+                                         width="50">
+                                </a>
                             </div>
                             <div class="cell cell-100 text-center" th:text="${product.price}"></div>
                             <!--rest api : 주소만으로 어떤 자원인지 식별하는 주소 체계-->

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>ProductDetail</title>
-    <link rel="stylesheet" th:href="@{http://localhost:8081/css/adminstyle.css}">
+    <link rel="stylesheet" th:href="@{/css/adminstyle.css}">
 </head>
 <body>
 <div class="container">
@@ -48,7 +48,7 @@
                     <div class="column s-6">
                         <label class="inputGroup">
                             <span>제품 번호</span>
-                            <span><input name="product_id" type="text" th:value="${products.product_id}" disabled></span>
+                            <span><input name="product_id" type="text" th:value="${products.product_id}" readonly></span>
                         </label>
                         <label class="inputGroup">
                             <span>이름</span>
@@ -58,6 +58,15 @@
                             <span>가격</span>
                             <span><input name="price" type="text" th:value="${products.price}"></span>
                         </label>
+                        <div class="dropdown">
+                            <label class="inputGroup">
+                                <span>판매 가능 여부</span>
+                                <span class="cell cell-100 text-center">
+                                    <input class="status" name="status" type="hidden" th:value="${products.is_orderable}">
+                                    <input class="btnSwitch status" name="status" type="checkbox">
+                                </span>
+                            </label>
+                        </div>
                     </div>
                     <div class="column s-6">
                         <label class="inputGroup">
@@ -82,6 +91,6 @@
         <!-- END CONTAINER  -->
     </div>
 </div>
-<script th:src="@{http://localhost:8081/js/adminjs.js}"></script>
+<script th:src="@{/js/adminjs.js}"></script>
 </body>
 </html>

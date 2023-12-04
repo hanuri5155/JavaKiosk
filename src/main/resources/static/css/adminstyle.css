@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 /* RESET */
 *, :before, :after {
     box-sizing: border-box;
@@ -896,7 +897,7 @@ label {
     margin-bottom: 10px;
 }
 .inputGroup>span:first-child {
-    width: 100px;
+    width: 110px;
     padding-bottom: 10px;
     text-align: right;
     padding-right: 10px;
@@ -966,6 +967,7 @@ label {
     background: transparent;
     border: none;
 }
+
 /* SORT */
 .boxSelect {
     min-width: 12em;

@@ -53,15 +53,17 @@ if (elm(".has-submenu")) {
     }
 }
 
-// BTN SWITCH
-if (elm(".checkAll") != undefined) {
-    for (var i = 0, len = elm(".checkAll").length; i < len; i++) {
-        var target = elm(".checkAll")[i].getAttribute("target");
-        if (elm(target)[i] != undefined) {
-            elm(".checkAll")[i].onchange = function () {
+// 전체 체크
+if (elm(".checkAll") !== undefined) {
+    for (var i_checkAll = 0, len_checkAll = elm(".checkAll").length; i_checkAll < len_checkAll; i_checkAll++) {
+        var target = elm(".checkAll")[i_checkAll].getAttribute("target");
+        var checkboxes = elm(target);
+
+        for (var i = 0, len = checkboxes.length; i < len; i++) {
+            elm(".checkAll")[i_checkAll].onchange = function () {
                 var checked = this.checked;
-                for (var i = 0, len = elm(target).length; i < len; i++) {
-                    elm(target)[i].checked = checked;
+                for (var j = 0; j < len; j++) {
+                    checkboxes[j].checked = checked;
                 }
             };
         }

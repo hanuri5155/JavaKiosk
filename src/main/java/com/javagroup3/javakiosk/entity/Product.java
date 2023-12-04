@@ -20,6 +20,7 @@ public class Product {
     private int price; // 제품 가격
     private boolean is_orderable; // 주문 가능 여부
     private String description; // 제품 설명
+    private String image_path; // 제품 사진 경로
 
     @PrePersist
     protected void onCreate() {
@@ -34,6 +35,7 @@ public class Product {
                 .price(dto.getPrice())
                 .is_orderable(dto.getIs_orderable())
                 .description(dto.getDescription())
+                .image_path(dto.getImage_path())
                 .build();
     }
 }
