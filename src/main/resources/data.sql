@@ -8,10 +8,10 @@ insert into product values (1, 57000, 244, '토마호크', '설명', '/images/be
 insert into product values (1, 99000, 245, '푸아그라', '설명', '/images/beef/foiegras.png');
 
 -- 파스타
-insert into product values (1, 16000, 246, '토마토 파스타', '설명', '/images/beef/barbecueporkribs.png');
-insert into product values (1, 16000, 247, '크림 파스타', '설명', '/images/beef/barbecueporkribs.png');
-insert into product values (1, 18000, 248, '먹물 파스타', '설명', '/images/beef/barbecueporkribs.png');
-insert into product values (1, 20000, 249, '연어 파스타', '설명', '/images/beef/barbecueporkribs.png');
+insert into product values (1, 16000, 246, '토마토 파스타', '설명', '/images/pasta/tomatopasta.png');
+insert into product values (1, 16000, 247, '크림 파스타', '설명', '/images/pasta/creampasta.png');
+insert into product values (1, 18000, 248, '먹물 파스타', '설명', '/images/pasta/inkpasta.png');
+insert into product values (1, 20000, 249, '연어 파스타', '설명', '/images/pasta/salmonpasta.png');
 
 -- 리조또
 insert into product values (1, 16000, 250, '토마토 리조또', '설명', '/images/risotto/tomatorosotto.png');

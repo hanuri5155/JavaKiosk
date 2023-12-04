@@ -67,7 +67,7 @@
                             <div class="cell cell-150 text-center">
                                 <a th:href="@{|/products/${product.product_id}|}">
                                     <img alt=""
-                                         src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg"
+                                         th:src="${product.image_path}"
                                          width="50">
                                 </a>
                             </div>
