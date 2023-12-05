@@ -71,21 +71,21 @@
                                     <img th:src="@{/images/beef/TOMAHAWK.png}" alt="TOMAHAWK">
                                     <div class="menu_content">
                                         <h4>토마호크 <span>₩57,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[3].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/beef/Porknecksteak.png}" alt="Porknecksteak">
                                     <div class="menu_content">
                                         <h4>목살 스테이크 <span>₩33,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[1].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/beef/barbecueporkribs.png}" alt="barbecueporkribs">
                                     <div class="menu_content">
                                         <h4>바베큐 폭립 <span>₩27,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[0].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -94,14 +94,14 @@
                                     <img th:src="@{/images/beef/foiegras.png}" alt="foiegras">
                                     <div class="menu_content">
                                         <h4>푸아그라 <span>₩99,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[4].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/beef/beefsteak.png}" alt="beefsteak">
                                     <div class="menu_content">
                                         <h4>소고기 스테이크 <span>₩45,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[2].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -114,14 +114,14 @@
                                     <img th:src="@{/images/pizza/cheesepizza.png}" alt="cheesepizza">
                                     <div class="menu_content">
                                         <h4>치즈 피자 <span>₩23,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[14].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/pizza/hawaiianpizza.png}" alt="hawaiianpizza">
                                     <div class="menu_content">
-                                        <h4>하와이안 피자 <span>₩23,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <h4>하와이안 피자<span>₩23,000</span></h4>
+                                        <p th:text="${products[15].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -129,8 +129,8 @@
                                 <div class="single_menu">
                                     <img th:src="@{/images/pizza/seafoodpizza.png}" alt="seafoodpizza">
                                     <div class="menu_content">
-                                        <h4>해산물 피자 <span>₩25,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <h4>해산물 피자<span>₩25,000</span></h4>
+                                        <p th:text="${products[16].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -143,14 +143,14 @@
                                     <img th:src="@{/images/pasta/creampasta.png}" alt="creampasta">
                                     <div class="menu_content">
                                         <h4>크림 파스타 <span>₩16,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[6].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/pasta/salmonpasta.png}" alt="salmonpasta">
                                     <div class="menu_content">
                                         <h4>연어 파스타 <span>₩20,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[8].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -159,14 +159,14 @@
                                     <img th:src="@{/images/pasta/tomatopasta.png}" alt="tomatopasta">
                                     <div class="menu_content">
                                         <h4>토마토 파스타 <span>₩16,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[5].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/pasta/inkpasta.png}" alt="inkpasta">
                                     <div class="menu_content">
                                         <h4>먹물 파스타 <span>₩18,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[7].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -179,21 +179,21 @@
                                     <img th:src="@{/images/risotto/beefrisotto.png}" alt="beefrisotto">
                                     <div class="menu_content">
                                         <h4>비프 리조또 <span>₩20,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[13].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/risotto/creamrisotto.png}" alt="creamrisotto">
                                     <div class="menu_content">
                                         <h4>크림 리조또 <span>₩16,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[10].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/risotto/seaurchinroerisotto.png}" alt="seaurchinroerisotto">
                                     <div class="menu_content">
                                         <h4>성게알 리조또 <span>₩18,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[11].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -202,14 +202,14 @@
                                     <img th:src="@{/images/risotto/tomatorosotto.png}" alt="tomatorosotto">
                                     <div class="menu_content">
                                         <h4>토마토 리조또 <span>₩16,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[9].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/risotto/seafoodrisotto.png}" alt="seafoodrisotto">
                                     <div class="menu_content">
                                         <h4>해산물 리조또 <span>₩20,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[12].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -222,14 +222,14 @@
                                     <img th:src="@{/images/salad/fruitsalad.png}" alt="fruitsalad">
                                     <div class="menu_content">
                                         <h4>과일 샐러드 <span>₩13,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[17].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/salad/salmonsalad.png}" alt="salmonsalad">
                                     <div class="menu_content">
                                         <h4>연어 샐러드 <span>₩15,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[19].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -238,14 +238,14 @@
                                     <img th:src="@{/images/salad/Riccottasalad.png}" alt="Riccottasalad">
                                     <div class="menu_content">
                                         <h4>리코타 샐러드 <span>₩13,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[18].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/salad/smokedducksalad.png}" alt="smokedducksalad">
                                     <div class="menu_content">
                                         <h4>훈제오리 샐러드 <span>₩15,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[20].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -258,14 +258,14 @@
                                     <img th:src="@{/images/dessert/Eclair.png}" alt="Eclair">
                                     <div class="menu_content">
                                         <h4>에클레어 <span>₩12,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[22].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/dessert/Millefeuille.png}" alt="Millefeuille">
                                     <div class="menu_content">
                                         <h4>밀푀유 <span>₩9,900</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[21].description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -274,14 +274,14 @@
                                     <img th:src="@{/images/dessert/souffle.png}" alt="souffle">
                                     <div class="menu_content">
                                         <h4>수플레 <span>₩14,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[23].description}"></p>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/dessert/montblanc.png}" alt="montblanc">
                                     <div class="menu_content">
                                         <h4>몽블랑 <span>₩14,000</span></h4>
-                                        <p>Aperiam tempore sit,perferendis numquam repudiandae porro voluptate dicta saepe facilis.</p>
+                                        <p th:text="${products[24].description}"></p>
                                     </div>
                                 </div>
                             </div>
