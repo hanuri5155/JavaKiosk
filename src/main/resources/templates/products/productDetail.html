@@ -3,22 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <title>ProductDetail</title>
+    <link rel="stylesheet" th:href="@{/css/adminstyle.css}">
 </head>
 <body>
-<table>
-    <tr>
-        <th>id</th>
-        <th>is_orderable</th>
-        <th>price</th>
-        <th>name</th>
-    </tr>
-    <tr>
-        <td th:text="${products.product_id}"></td>
-        <td th:text="${products.is_orderable}"></td>
-        <td th:text="${products.price}"></td>
-        <td th:text="${products.name}"></td>
-    </tr>
-</table>
-<a th:href="@{|/products/productUpdate/${products.product_id}|}">정보 수정하기</a>
+<div class="container">
+    <!--     SIDE AREA -->
+    <div class="sideArea">
+        <div class="avatar">
+            <img alt=""
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCNOdyoIXDDBztO_GC8MFLmG_p6lZ2lTDh1ZnxSDawl1TZY_Zw">
+            <div class="avatarName">Welcome,<br>admin</div>
+        </div>
+        <ul class="sideMenu">
+            <li><a th:href="@{/admins}"><span class="fa fa-table"></span>ORDER</a></li>
+            <li><a class="has-submenu" th:href="@{/admins/productManagement}"><span class="fa fa-table"></span>PRODUCT</a></li>
+            <li><a th:href="@{/admins/memberManagement}"><span class="fa fa-table"></span>USER</a></li>
+        </ul>
+    </div>
+    <!--     SIDE AREA -->
+    <div class="mainArea">
+        <!-- BEGIN NAV -->
+        <nav class="navTop row">
+            <div class="menuIcon fl"><span class="fa fa-bars"></span></div>
+            <div class="account fr">
+                <div class="name has-submenu">admin<span class="fa fa-angle-down"></span></div>
+                <ul class="accountLinks submenu">
+                    <li><a th:href="@{/}">홈페이지</a></li>
+                    <li><a th:href="@{/members/logout}">로그아웃<span class="fa fa-sign-out fr"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- END NAV -->
+        <!-- CONTAINER  -->
+        <div class="mainContent">
+            <!-- DETAIL FORM -->
+            <form th:action="@{|/products/${products.product_id}|}" class="form" enctype="multipart/form-data" method="POST">
+                <div class="formHeader row">
+                    <h2 class="text-1 fl">제품 상세</h2>
+                    <div class="fr">
+                        <button type="submit" class="btnSave bg-1 text-fff text-bold fr">정보 수정</button>
+                    </div>
+                </div>
+                <div class="formBody row">
+                    <div class="column s-6">
+                        <label class="inputGroup">
+                            <span>제품 번호</span>
+                            <span><input name="product_id" type="text" th:value="${products.product_id}" readonly></span>
+                        </label>
+                        <label class="inputGroup">
+                            <span>이름</span>
+                            <span><input name="name" type="text" th:value="${products.name}"></span>
+                        </label>
+                        <label class="inputGroup">
+                            <span>가격</span>
+                            <span><input name="price" type="text" th:value="${products.price}"></span>
+                        </label>
+                        <div class="dropdown">
+                            <label class="inputGroup">
+                                <span>판매 가능 여부</span>
+                                <span class="cell cell-100 text-center">
+                                    <input type="hidden" th:value="${products.is_orderable}" name="is_orderable">
+                                    <input class="btnSwitch status" name="status" type="checkbox" th:checked="${products.is_orderable}">
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="column s-6" style="text-align: center">
+                        <div id="imagePreview">
+                            <label class="inputGroup" style="display: inline-block">
+                                <input type="hidden" name="image_path" th:value="${products.image_path}">
+                                <img alt="" th:src="${products.image_path}" width="220" style="text-align: left"><br>
+                            </label>
+                        </div>
+                        <span style="display: inline-block">
+                            <input multiple name="img" onchange="getImg(this)" type="file" style="margin-bottom: 10px"><br>
+                            <button type="button" onclick="saveData()" class="btnSave bg-1 text-fff text-bold fc">이미지 저장</button>
+                        </span>
+                    </div>
+                    <div class="column">
+                        <label class="inputGroup">
+                            <span>Description</span>
+                            <textarea name="description" th:text="${products.description}"></textarea>
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <!-- END DETAIL FORM  -->
+        </div>
+        <!-- END CONTAINER  -->
+    </div>
+</div>
+<script th:src="@{/js/adminjs.js}"></script>
 </body>
 </html>

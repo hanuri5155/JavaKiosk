@@ -3,10 +3,8 @@ package com.javagroup3.javakiosk.entity;
 import com.javagroup3.javakiosk.dto.MemberDTO;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDateTime;
 
-//
 @Getter
 @Setter
 @Entity

@@ -1,8 +1,6 @@
 package com.javagroup3.javakiosk.service;
 
 import com.javagroup3.javakiosk.dto.ProductDTO;
-import com.javagroup3.javakiosk.entity.Member;
-import com.javagroup3.javakiosk.entity.OrderRecord;
 import com.javagroup3.javakiosk.entity.Product;
 import com.javagroup3.javakiosk.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;

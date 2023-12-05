@@ -22,7 +22,7 @@ public class AdminController {
     private  final MemberService memberService;
     private final OrderRecordService orderRecordService;
 
-    @GetMapping("/admins")
+    @GetMapping("/admins") // 주문 관리 페이지
     public String orderManagement(Model model){
         List<OrderRecord> orderRecords = orderRecordService.getList();
 
@@ -33,13 +33,13 @@ public class AdminController {
     }
 
     private  final ProductService productService;
-    @GetMapping("/admins/productManagement")
+    @GetMapping("/admins/productManagement") // 제품 관리 페이지
     public String newproductFindAll(Model model){ // 제품 출력
         List<ProductDTO> productDTOList = productService.findAll();
         model.addAttribute("productlist", productDTOList);
         return "admins/productManagement";
     }
-    @GetMapping("/admins/memberManagement")
+    @GetMapping("/admins/memberManagement") // 회원 관리 페이지
     public String newmemberFindAll(Model model){
         List<MemberDTO> memberDTOList = memberService.findAll();
         // 어떠한 html로 가져갈 데이터가 있을시 그 객체를 실어나르는 역할을 하는게 model
@@ -47,21 +47,14 @@ public class AdminController {
         return "admins/memberManagement";
     }
 
-    @GetMapping("/products/{id}") // 제품 상세 조회
+    @GetMapping("/products/{id}") // 제품 상세 조회 및 수정 페이지
     public String productFindyId(@PathVariable Integer id, Model model){
         ProductDTO productDTO = productService.findById(id);
         model.addAttribute("products", productDTO);
         return "products/productDetail";
     }
 
-    @GetMapping("/products/productUpdate/{id}") // 제품 정보 수정
-    public String productUpdateForm(@PathVariable Integer id, Model model){
-        ProductDTO productDTO = productService.findById(id);
-        model.addAttribute("products", productDTO);
-        return "products/productUpdate";
-    }
-
-    @PostMapping("/products/productUpdate/{id}")
+    @PostMapping("/products/{id}")
     public String productUpdate(@ModelAttribute ProductDTO productDTO){
         productService.ubdate(productDTO);
         return "redirect:/products/" + productDTO.getProduct_id();

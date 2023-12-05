@@ -14,11 +14,13 @@ import lombok.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int product_id; // 회원 아이디
+    private int product_id; // 제품 아이디
 
     private String name; // 제품 이름
     private int price; // 제품 가격
     private boolean is_orderable; // 주문 가능 여부
+    private String description; // 제품 설명
+    private String image_path; // 제품 사진 경로
 
     @PrePersist
     protected void onCreate() {
@@ -32,6 +34,8 @@ public class Product {
                 .name(dto.getName())
                 .price(dto.getPrice())
                 .is_orderable(dto.getIs_orderable())
+                .description(dto.getDescription())
+                .image_path(dto.getImage_path())
                 .build();
     }
 }
