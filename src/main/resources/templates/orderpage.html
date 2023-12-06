@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" dir="ltr" style="background-color:#2d3042;">
+<head>
+  <title>orderpage</title>
+
+  <link rel="stylesheet" th:href="@{http://localhost:8081/css/orderpage.css}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+        crossorigin="anonymous">
+</head>
+<header>
+  <h1>
+    <a th:href="@{/home}" class="logo" style="text-align: left">
+      <img src="/images/icons/logo.png" height="80" width="200"  alt="">
+
+    </a>
+  </h1>
+  <nav>
+    <ul>
+      <li><a href="#" style="color:#000000"><b>BRAND</b></a></li>
+      <li><a href="#" style="color:#000000"><b>MENU</b></a></li>
+      <li><a href="#" style="color:#000000"><b>ORDER</b></a></li>
+      <li><a href="#" style="color:#000000"><b>MY PAGE</b></a></li>
+      <li><a  th:href="@{/members/login}" style="color:#000000"><b>LOGIN</b></a></li>
+    </ul>
+  </nav>
+</header>
+
+<body>
+<div class="row">
+  <ul class="nav nav-tabs menu_tab mb-4" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="beef-tab" data-toggle="tab" href="#beef" role="tab">Beef</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pizza-tab" data-toggle="tab" href="#pizza" role="tab">Pizza</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pasta-tab" data-toggle="tab" href="#pasta" role="tab">Pasta</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="risotto-tab" data-toggle="tab" href="#risotto" role="tab">Risotto</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="salad-tab" data-toggle="tab" href="#salad" role="tab">Salad</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="dessert-tab" data-toggle="tab" href="#dessert" role="tab">Dessert</a>
+    </li>
+  </ul>
+</div>
+
+<div class="container" style="margin-top:15%;">
+  <div id="products" class="row list-group">
+<!--고기-->
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/beef/TOMAHAWK.png/" alt="" style=" width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            토마호크</h4>
+          <p class="group inner list-group-item-text">
+            beef</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                21000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/beef/barbecueporkribs.png/" alt="" style=" width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            바베큐 폭립</h4>
+          <p class="group inner list-group-item-text">
+            beef</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                21000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc" >
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/beef/beefsteak.png/" alt="" style=" width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            소고기 스테이크</h4>
+          <p class="group inner list-group-item-text">
+            beef</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                21000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/beef/foiegras.png/" alt="" style=" width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            푸아그라</h4>
+          <p class="group inner list-group-item-text">
+            beef</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                21000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/beef/Porknecksteak.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            목살스테이크</h4>
+          <p class="group inner list-group-item-text">
+            beef</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                21000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--디저트-->
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/dessert/Eclair.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            에끌레어</h4>
+          <p class="group inner list-group-item-text">
+            Dessert</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/dessert/souffle.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            수플레</h4>
+          <p class="group inner list-group-item-text">
+            Dessert</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/dessert/montblanc.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            몽블랑</h4>
+          <p class="group inner list-group-item-text">
+            Dessert</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/dessert/Millefeuille.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            밀푀유</h4>
+          <p class="group inner list-group-item-text">
+            Dessert</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--    파스타-->
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/pasta/tomatopasta.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            토마토 파스타</h4>
+          <p class="group inner list-group-item-text">
+            Pasta</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/pasta/salmonpasta.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            연어 파스타</h4>
+          <p class="group inner list-group-item-text">
+            Pasta</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/pasta/inkpasta.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            먹물 파스타</h4>
+          <p class="group inner list-group-item-text">
+            Pasta</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/pasta/creampasta.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            크림파스타</h4>
+          <p class="group inner list-group-item-text">
+            Pasta</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--피자-->
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/pizza/cheesepizza.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            치즈피자</h4>
+          <p class="group inner list-group-item-text">
+            Pasta</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/pizza/hawaiianpizza.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            하와이안피자</h4>
+          <p class="group inner list-group-item-text">
+            Pasta</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/pizza/seafoodpizza.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            씨푸드피자</h4>
+          <p class="group inner list-group-item-text">
+            Pasta</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--  리조또  -->
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/risotto/beefrisotto.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            비프리조또</h4>
+          <p class="group inner list-group-item-text">
+            Risotto</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/risotto/tomatorosotto.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            토마토리조또</h4>
+          <p class="group inner list-group-item-text">
+            Risotto</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/risotto/seaurchinroerisotto.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            성게리조또</h4>
+          <p class="group inner list-group-item-text">
+            Risotto</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/risotto/creamrisotto.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            크림리조또</h4>
+          <p class="group inner list-group-item-text">
+            Risotto</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/risotto/seafoodrisotto.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            씨푸드리조또</h4>
+          <p class="group inner list-group-item-text">
+            Risotto</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!--  샐러드  -->
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/salad/fruitsalad.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            과일 샐러드</h4>
+          <p class="group inner list-group-item-text">
+            Salad</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/salad/Riccottasalad.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            리코티샐러드</h4>
+          <p class="group inner list-group-item-text">
+            Salad</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/salad/salmonsalad.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            연어 샐러드</h4>
+          <p class="group inner list-group-item-text">
+            Salad</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemcc">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="/images/salad/smokedducksalad.png/" alt="" style="width : 270px; height : 160px;"/>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            훈제오리 샐러드</h4>
+          <p class="group inner list-group-item-text">
+            Salad</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <p class="lead">
+                5000</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<script src="/js/orderpage.js"></script>
+</body>
+
+</html>
