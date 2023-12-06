@@ -44,10 +44,24 @@ public class OrderController {
 
     @GetMapping("/orderpage") // 주문 페이지
     public String orderpage(Model model){
+        List<Product> productList = this.productService.getList();
+        model.addAttribute("productList", productList);
          return "/orderpage";
     }
     @GetMapping("/orderpagetest")
     public String orderpagetest(Model model){
+        List<Product> beefProductList = this.productService.getBeefList();
+        List<Product> pizzaProductList = this.productService.getPizzaList();
+        List<Product> pastaProductList = this.productService.getPastaList();
+        List<Product> risottoProductList = this.productService.getRisottoList();
+        List<Product> dessertProductList = this.productService.getDessertList();
+
+        model.addAttribute("beefProductList", beefProductList);
+        model.addAttribute("pizzaProductList", pizzaProductList);
+        model.addAttribute("pastaProductList", pastaProductList);
+        model.addAttribute("risottoProductList", risottoProductList);
+        model.addAttribute("dessertProductList", dessertProductList);
+
         return "/orderpagetest";
     }
     // 아래에 있는 order, orderCancel 메소드는 POST 요청을 처리하는데, 리턴 타입이 ResponseTransfer 입니다.
