@@ -17,6 +17,7 @@ public class ProductDTO {
     private String name; // 음식이름
     private String description; // 제품 설명
     private String image_path; // 제품 사진 경로
+    private String category; // 제품 카테고리
 
     public static ProductDTO toDTO(Product entity){
         return ProductDTO.builder()
@@ -26,6 +27,7 @@ public class ProductDTO {
                 .name(entity.getName())
                 .description(entity.getDescription())
                 .image_path(entity.getImage_path())
+                .category(entity.getCategory())
                 .build();
     }
 }

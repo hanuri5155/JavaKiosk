@@ -45,4 +45,22 @@ public class ProductService { // 제품 목록을 DB 에서 불러와주는 클�
     public List<Product> getList(){
         return this.productRepository.findAll();
     }
+    public List<Product> getBeefList(){
+        return this.productRepository.findBeefProduct();
+    }
+    public List<Product> getPizzaList(){
+        return this.productRepository.findPizzaProduct();
+    }
+    public List<Product> getPastaList(){
+        return this.productRepository.findPastaProduct();
+    }
+    public List<Product> getRisottoList(){
+        return this.productRepository.findRisottoProduct();
+    }
+    public List<Product> getDessertList(){
+        return this.productRepository.findDessertProduct();
+    }
+    public List<Product> getSaladtList(){
+        return this.productRepository.findSaladProduct();
+    }
 }

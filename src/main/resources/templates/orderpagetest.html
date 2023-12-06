@@ -20,8 +20,8 @@
     </h1>
     <nav>
         <ul>
-            <li><a href="#"><b>MENU</b></a></li>
-            <li><a th:href="@{/order}"><b>ORDER</b></a></li>
+            <li><a th:href="@{/menu}"><b>MENU</b></a></li>
+            <li><a href="#"><b>ORDER</b></a></li>
             <li><a href="#"><b>MY PAGE</b></a></li>
             <li><a th:href="@{/admins}"><b>ADMIN</b></a></li>
             <li><a sec:authorize="isAnonymous()" th:href="@{/members/login}"><b>LOGIN</b></a></li>
@@ -30,7 +30,7 @@
     </nav>
 </header>
 <section id="our_menu" class="pt-5 pb-5" style="height: 1000px">
-    <div class="container">
+    <div class="container" style="text-align: center">
         <div class="row">
             <div class="col-lg-12">
                 <div class="page_title text-center mb-4">
@@ -66,47 +66,83 @@
                 <div class="tab-content col-lg-12" id="myTabContent">
                     <div class="tab-pane fade show active" id="beef" role="tabpanel" aria-labelledby="beef-tab">
                         <div class="row">
-                            <div class="col-md-6" style="padding: 15px">
-                                <div class="single_menu">
-                                    <img th:src="@{/images/beef/TOMAHAWK.png}" alt="TOMAHAWK">
+                            <div class="col-md-4 col-lg-4" style="padding: 15px">
+                                <div class="single_menu" id="productList">
+                                    <img th:src="@{/images/beef/TOMAHAWK.png}" alt="TOMAHAWK"><br>
                                     <div class="menu_content">
-                                        <h4>토마호크 <span>₩57,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                                    </div>
-                                </div>
-                                <div class="single_menu">
-                                    <img th:src="@{/images/beef/Porknecksteak.png}" alt="Porknecksteak">
-                                    <div class="menu_content">
-                                        <h4>목살 스테이크 <span>₩33,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                                    </div>
-                                </div>
-                                <div class="single_menu">
-                                    <img th:src="@{/images/beef/barbecueporkribs.png}" alt="barbecueporkribs">
-                                    <div class="menu_content">
-                                        <h4>바베큐 폭립 <span>₩27,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6" style="padding: 15px">
-                                <div class="single_menu">
-                                    <img th:src="@{/images/beef/foiegras.png}" alt="foiegras">
-                                    <div class="menu_content">
-                                        <h4>푸아그라 <span>₩99,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                        <h4>토마호크</h4>
+                                        <p><span>₩57,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:produtid="${beefProductList[3].product_id}"
+                                                th:productName="${beefProductList[3].name}"
+                                                th:productPrice="${beefProductList[3].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/beef/beefsteak.png}" alt="beefsteak">
                                     <div class="menu_content">
-                                        <h4>소고기 스테이크<span>₩45,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                        <h4>소고기 스테이크</h4>
+                                        <p><span>₩45,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${beefProductList[2].product_id}"
+                                                th:productName="${beefProductList[2].name}"
+                                                th:productPrice="${beefProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-4" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{/images/beef/barbecueporkribs.png}" alt="barbecueporkribs">
+                                    <div class="menu_content">
+                                        <h4>바베큐 폭립</h4>
+                                        <p><span>₩27,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${beefProductList[0].product_id}"
+                                                th:productName="${beefProductList[0].name}"
+                                                th:productPrice="${beefProductList[0].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="single_menu">
+                                    <img th:src="@{/images/beef/foiegras.png}" alt="foiegras">
+                                    <div class="menu_content">
+                                        <h4>푸아그라</h4>
+                                        <p><span>₩99,000</span></p><label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${beefProductList[4].product_id}"
+                                                th:productName="${beefProductList[4].name}"
+                                                th:productPrice="${beefProductList[4].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-4" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{/images/beef/Porknecksteak.png}" alt="beefsteak">
+                                    <div class="menu_content">
+                                        <h4>목살 스테이크</h4>
+                                        <p><span>₩45,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${beefProductList[1].product_id}"
+                                                th:productName="${beefProductList[1].name}"
+                                                th:productPrice="${beefProductList[1].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -114,185 +150,371 @@
                     </div>
                     <div class="tab-pane fade" id="pizza" role="tabpanel" aria-labelledby="pizza-tab">
                         <div class="row">
-                            <div class="col-md-6" style="padding: 15px">
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/pizza/cheesepizza.png}" alt="cheesepizza">
                                     <div class="menu_content">
-                                        <h4>치즈 피자 <span>₩23,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>치즈 피자</h4>
+                                        <p><span>₩23,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[0].product_id}"
+                                                th:productName="${pizzaProductList[0].name}"
+                                                th:productPrice="${pizzaProductList[0].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/pizza/hawaiianpizza.png}" alt="hawaiianpizza">
                                     <div class="menu_content">
-                                        <h4>하와이안 피자 <span>₩23,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>하와이안 피자</h4>
+                                        <p><span>₩23,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[1].product_id}"
+                                                th:productName="${pizzaProductList[1].name}"
+                                                th:productPrice="${pizzaProductList[1].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6" style="padding: 15px">
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/pizza/seafoodpizza.png}" alt="seafoodpizza">
                                     <div class="menu_content">
-                                        <h4>해산물 피자 <span>₩25,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>해산물 피자</h4>
+                                        <p><span>₩25,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pasta" role="tabpanel" aria-labelledby="pasta-tab">
                         <div class="row">
-                            <div class="col-md-6" style="padding: 15px">
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/pasta/creampasta.png}" alt="creampasta">
                                     <div class="menu_content">
-                                        <h4>크림 파스타 <span>₩16,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>크림 파스타</h4>
+                                        <p><span>₩16,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                      </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/pasta/salmonpasta.png}" alt="salmonpasta">
                                     <div class="menu_content">
-                                        <h4>연어 파스타 <span>₩20,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>연어 파스타</h4>
+                                        <p><span>₩20,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6" style="padding: 15px">
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/pasta/tomatopasta.png}" alt="tomatopasta">
                                     <div class="menu_content">
-                                        <h4>토마토 파스타 <span>₩16,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>토마토 파스타</h4>
+                                        <p><span>₩16,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                      </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/pasta/inkpasta.png}" alt="inkpasta">
                                     <div class="menu_content">
-                                        <h4>먹물 파스타 <span>₩18,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>먹물 파스타</h4>
+                                        <p><span>₩18,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="padding: 15px">
+                                <div class="single_menu">
+                                    <img th:src="@{/images/pasta/tomatopasta.png}" alt="tomatopasta">
+                                    <div class="menu_content">
+                                        <h4>토마토 파스타</h4>
+                                        <p><span>₩16,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="risotto" role="tabpanel" aria-labelledby="risotto-tab">
                         <div class="row">
-                            <div class="col-md-6" style="padding: 15px">
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/risotto/beefrisotto.png}" alt="beefrisotto">
                                     <div class="menu_content">
-                                        <h4>비프 리조또 <span>₩20,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>비프 리조또</h4>
+                                        <p><span>₩20,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/risotto/creamrisotto.png}" alt="creamrisotto">
                                     <div class="menu_content">
-                                        <h4>크림 리조또 <span>₩16,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>크림 리조또</h4>
+                                        <p><span>₩16,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/risotto/seaurchinroerisotto.png}" alt="seaurchinroerisotto">
                                     <div class="menu_content">
-                                        <h4>성게알 리조또 <span>₩18,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>성게알 리조또</h4>
+                                        <p><span>₩18,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/risotto/tomatorosotto.png}" alt="tomatorosotto">
                                     <div class="menu_content">
-                                        <h4>토마토 리조또 <span>₩16,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>토마토 리조또</h4>
+                                        <p><span>₩25,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/risotto/seafoodrisotto.png}" alt="seafoodrisotto">
                                     <div class="menu_content">
-                                        <h4>해산물 리조또 <span>₩20,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>해산물 리조또</h4>
+                                        <p><span>₩20,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                      </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="salad" role="tabpanel" aria-labelledby="salad-tab">
                         <div class="row">
-                            <div class="col-md-6" style="padding: 15px">
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/salad/fruitsalad.png}" alt="fruitsalad">
                                     <div class="menu_content">
-                                        <h4>과일 샐러드 <span>₩13,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>과일 샐러드</h4>
+                                        <p><span>₩13,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>
+                                    </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/salad/salmonsalad.png}" alt="salmonsalad">
                                     <div class="menu_content">
-                                        <h4>연어 샐러드 <span>₩15,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>연어 샐러드</h4>
+                                        <p><span>₩15,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                      </div>
                                 </div>
                             </div>
-                            <div class="col-md-6" style="padding: 15px">
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/salad/Riccottasalad.png}" alt="Riccottasalad">
                                     <div class="menu_content">
-                                        <h4>리코타 샐러드 <span>₩13,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>리코타 샐러드</h4>
+                                        <p><span>₩13,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                      </div>
                                 </div>
+                            </div>
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/salad/smokedducksalad.png}" alt="smokedducksalad">
                                     <div class="menu_content">
-                                        <h4>훈제오리 샐러드 <span>₩15,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>훈제오리 샐러드</h4>
+                                        <p><span>₩15,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                      </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="dessert" role="tabpanel" aria-labelledby="dessert-tab">
                         <div class="row">
-                            <div class="col-md-6" style="padding: 15px">
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/dessert/Eclair.png}" alt="Eclair">
                                     <div class="menu_content">
-                                        <h4>에클레어 <span>₩12,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>에클레어</h4>
+                                        <p><span>₩12,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                      </div>
                                 </div>
                                 <div class="single_menu">
                                     <img th:src="@{/images/dessert/Millefeuille.png}" alt="Millefeuille">
                                     <div class="menu_content">
-                                        <h4>밀푀유 <br><span>₩9,900</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>밀푀유</h4>
+                                        <p><span>₩9,900</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                      </div>
                                 </div>
                             </div>
-                            <div class="col-md-6" style="padding: 15px">
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/dessert/souffle.png}" alt="souffle">
                                     <div class="menu_content">
-                                        <h4>수플레 <br><span>₩14,000</span></h4>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>수플레</h4>
+                                        <p><span>₩14,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                      </div>
                                 </div>
+                            </div>
+                            <div class="col-md-4" style="padding: 15px">
                                 <div class="single_menu">
                                     <img th:src="@{/images/dessert/montblanc.png}" alt="montblanc">
                                     <div class="menu_content">
-                                        <h4>몽블랑 <br><span>₩14,000</span></h4>
-                                        <p><br></p>
-                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>                                    </div>
+                                        <h4>몽블랑</h4>
+                                        <p><span>₩14,000</span></p>
+                                        <label th:for="'quantity_' + ${beefProductList[3].product_id}"></label>
+                                        <input style="margin-right: 16px" type="number" th:id="'quantity_' + ${beefProductList[3].product_id}" value="1" min="1" max="10" step="1">
+                                        <button
+                                                th:productId="${pizzaProductList[2].product_id}"
+                                                th:productName="${pizzaProductList[2].name}"
+                                                th:productPrice="${pizzaProductList[2].price}"
+                                                class="btn btn-success" >Add to cart
+                                        </button>                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <ul class="nav nav-tabs menu_tab mb-4">
+                <li class="nav-item">
+                    <span>주문 총액: </span>
+                    <span id="totalPrice">0</span>
+                </li>
+                <li class="nav-item">
+                    <button id="order">주문하기</button>
+                </li>
+            </ul>
         </div>
     </div>
 </section>
@@ -309,6 +531,8 @@
         </h1><br><br>
     </div>
 </section>
+<!--<script src="/js/order.js"></script>-->
+<script th:src="@{/js/order.js}" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>

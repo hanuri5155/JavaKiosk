@@ -138,9 +138,11 @@ header nav ul li a:hover {
     position: relative;
     margin-bottom: 75px;
     transition: 0.3s;
+    text-align: left;
 }
 .single_menu:hover img {
     clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+    display: block;
 }
 .single_menu img {
     width: 33%;
@@ -150,6 +152,7 @@ header nav ul li a:hover {
     transition: 0.3s;
     border: 1px solid #2d3042;
     border-radius: 5px;
+    display: block;
 }
 .menu_content {
     padding-left: 200px;
@@ -218,8 +221,10 @@ header nav ul li a:hover {
     /*border: 1px solid #dedede;*/
 }
 .formBody {
-    /*width: 100%;*/
-    padding: 20px 20px 10px 20px;
+    padding: 20px 30px 10px 30px;
+    margin-right:20px;
+    margin-left:20px;
+    display: inline-block;
 }
 .row2 {
     background: #fff;

@@ -21,6 +21,7 @@ public class Product {
     private boolean is_orderable; // 주문 가능 여부
     private String description; // 제품 설명
     private String image_path; // 제품 사진 경로
+    private String category; // 제품 카테고리
 
     @PrePersist
     protected void onCreate() {
@@ -36,6 +37,7 @@ public class Product {
                 .is_orderable(dto.getIs_orderable())
                 .description(dto.getDescription())
                 .image_path(dto.getImage_path())
+                .category(dto.getCategory())
                 .build();
     }
 }

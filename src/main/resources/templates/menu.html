@@ -21,7 +21,7 @@
     <nav>
         <ul>
             <li><a href="#"><b>MENU</b></a></li>
-            <li><a th:href="@{/order}"><b>ORDER</b></a></li>
+            <li><a th:href="@{/orderpagetest}"><b>ORDER</b></a></li>
             <li><a href="#"><b>MY PAGE</b></a></li>
             <li><a th:href="@{/admins}"><b>ADMIN</b></a></li>
             <li><a sec:authorize="isAnonymous()" th:href="@{/members/login}"><b>LOGIN</b></a></li>
@@ -30,7 +30,7 @@
     </nav>
 </header>
 <section id="our_menu" class="pt-5 pb-5" style="height: 1000px">
-    <div class="container">
+    <div class="container" style="text-align: center">
         <div class="row">
             <div class="col-lg-12">
                 <div class="page_title text-center mb-4">
@@ -100,7 +100,7 @@
                                 <div class="single_menu">
                                     <img th:src="@{/images/beef/beefsteak.png}" alt="beefsteak">
                                     <div class="menu_content">
-                                        <h4>소고기 스테이크 <span>₩45,000</span></h4>
+                                        <h4>소고기 스테이크 <span style="font-size: 23px">₩45,000</span></h4>
                                         <p th:text="${products[2].description}"></p>
                                     </div>
                                 </div>
@@ -244,7 +244,7 @@
                                 <div class="single_menu">
                                     <img th:src="@{/images/salad/smokedducksalad.png}" alt="smokedducksalad">
                                     <div class="menu_content">
-                                        <h4>훈제오리 샐러드 <span>₩15,000</span></h4>
+                                        <h4>훈제오리 샐러드 <span style="font-size: 23px">₩15,000</span></h4>
                                         <p th:text="${products[20].description}"></p>
                                     </div>
                                 </div>
