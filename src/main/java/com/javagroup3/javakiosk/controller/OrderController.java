@@ -55,12 +55,14 @@ public class OrderController {
         List<Product> pastaProductList = this.productService.getPastaList();
         List<Product> risottoProductList = this.productService.getRisottoList();
         List<Product> dessertProductList = this.productService.getDessertList();
+        List<Product> saladProductList = this.productService.getSaladtList();
 
         model.addAttribute("beefProductList", beefProductList);
         model.addAttribute("pizzaProductList", pizzaProductList);
         model.addAttribute("pastaProductList", pastaProductList);
         model.addAttribute("risottoProductList", risottoProductList);
         model.addAttribute("dessertProductList", dessertProductList);
+        model.addAttribute("saladProductList", saladProductList);
 
         return "/orderpagetest";
     }

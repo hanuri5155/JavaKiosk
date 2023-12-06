@@ -60,4 +60,7 @@ public class ProductService { // 제품 목록을 DB 에서 불러와주는 클�
     public List<Product> getDessertList(){
         return this.productRepository.findDessertProduct();
     }
+    public List<Product> getSaladtList(){
+        return this.productRepository.findSaladProduct();
+    }
 }

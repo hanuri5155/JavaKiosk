@@ -55,10 +55,9 @@
                         <div class="cell cell-100p text-fff">이름</div>
                         <div class="cell cell-100 text-center text-fff">
                             <label>
-                                <input class="checkbox checkAll" name="statusAll" target=".status" type="checkbox">
+                                <input class="checkbox checkAll" name="statusAll" target=".status" type="checkbox" checked>
                             </label>
                         </div>
-                        <div class="cell cell-100 text-center text-fff">삭제</div>
                     </div>
                     <!--   BEGIN LOOP -->
                     <ul>
@@ -76,10 +75,6 @@
                             <div class="cell cell-100p"><a th:href="@{|/products/${product.product_id}|}"  th:text="${product.name}"></a></div>
                             <div class="cell cell-100 text-center">
                                 <input class="btnSwitch status" name="status" type="checkbox" th:checked="${product.is_orderable}">
-                            </div>
-                            <div class="cell cell-100 text-center">
-                                <a class="btnRemove fa fa-remove bg-1 text-fff" href=""
-                                   onclick='return confirm("정말로 삭제 하시겠습니까?")'>삭제</a>
                             </div>
                         </li>
                     </ul>

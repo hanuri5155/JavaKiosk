@@ -136,19 +136,23 @@ header nav ul li a:hover {
 }
 .single_menu {
     position: relative;
-    margin-bottom: 75px;
+    margin-bottom: 60px;
     transition: 0.3s;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid #b2b2b2;
+    border-radius: 5px;
 }
 .single_menu img {
-    width: 33%;
-    position: absolute;
+    display: inline-block;
+    width: 75%;
     height: 140px;
     transition: 0.3s;
     border: 1px solid #2d3042;
     border-radius: 5px;
 }
 .menu_content {
-    padding-left: 200px;
+    padding-left: 0px;
 }
 .menu_content h4 {
     font-size: 24px;
@@ -166,7 +170,14 @@ header nav ul li a:hover {
     font-style: italic;
     color: #c05050;
     margin-right:100px;
-
+    display: inline-block;
+}
+.menu_content p span{
+    font-size: 22px;
+    font-weight: 800;
+    font-style: italic;
+    color: #c05050;
+    display: inline-block;
 }
 .menu_content p {
     font-weight: 200;
@@ -221,6 +232,7 @@ header nav ul li a:hover {
     padding: 20px 30px 10px 30px;
     margin-right:20px;
     margin-left:20px;
+    display: inline-block;
 }
 .row2 {
     background: #fff;
@@ -245,5 +257,5 @@ header nav ul li a:hover {
     border-radius: 4px;
 }
 .btn.btn-success{
-    margin-left:85px;
+    margin-left:0px;
 }
