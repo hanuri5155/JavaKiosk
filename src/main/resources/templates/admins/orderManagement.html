@@ -58,7 +58,7 @@
                     </div>
                     <!--   BEGIN LOOP -->
                     <ul id="orderTable">
-                        <li class="row" th:each="orderRecord : ${orderRecords}">
+                        <li class='row' th:each="orderRecord : ${orderRecords}" th:id="${orderRecord.orderId}">
                             <div class="cell cell-100 text-center" th:classappend="orderId" th:text="${orderRecord.orderId}"></div>
                             <div class="cell cell-150 text-center" th:text="${orderRecord.member.username}"></div>
                             <div class="cell cell-150 text-center" th:text="${orderRecord.product.name}"></div>

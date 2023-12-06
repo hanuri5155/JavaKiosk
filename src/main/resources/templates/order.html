@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <script th:src="@{/js/order.js}" defer></script>
+    <link rel="stylesheet" th:href="@{/css/order.css}">
     <title>Product List</title>
 </head>
 <body>
@@ -15,11 +17,11 @@
         <th>Is Orderable</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="productList">
     <tr th:each="product : ${productList}" th:id="'item_' + ${product.product_id}">
-        <td th:text="${product.product_id}"></td>
-        <td th:text="${product.name}"></td>
-        <td th:text="${product.price}"></td>
+        <td class='productId' th:text="${product.product_id}"></td>
+        <td class='productName' th:text="${product.name}"></td>
+        <td class='productPrice' th:text="${product.price}"></td>
         <td th:style="${product.is_orderable ? 'color: gray' : ''}"
             th:text="${product.is_orderable ? 'Yes' : 'No'}"></td>
         <td>
@@ -31,11 +33,6 @@
                     th:productId="${product.product_id}"
                     th:productName="${product.name}"
                     th:productPrice="${product.price}"
-                    onclick="addToCart(
-                        this.getAttribute('productId'),
-                        this.getAttribute('productName'),
-                        this.getAttribute('productPrice')
-                        )"
             >
                 장바구니 담기
             </button>
@@ -43,30 +40,11 @@
     </tr>
     </tbody>
 </table>
+<div>
+    <span>주문 총액: </span>
+    <span id="totalPrice">0</span>
+</div>
 
-<button onclick='makeOrder()'>주문하기</button>
-
-<script>
-    let cart = [];
-
-    function addToCart(productId, productName, productPrice){
-        const quantityInput = document.getElementById("quantity_" + productId);
-        const quantity = parseInt(quantityInput.value);
-        cart.push({productId, productName, productPrice, quantity})
-    }
-    function makeOrder(){
-        fetch('/order', {
-            method: 'POST',
-            body: JSON.stringify(cart)
-        })
-            .then(res => res.json())
-            .then(data => {
-            alert(data.message);
-            console.log(data);
-            cart = [];
-        })
-    }
-</script>
-
+<button id="order">주문하기</button>
 </body>
 </html>
