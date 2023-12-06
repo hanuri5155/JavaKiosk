@@ -48,7 +48,7 @@ public class AdminController {
     }
 
     @GetMapping("/products/{id}") // 제품 상세 조회 및 수정 페이지
-    public String productFindyId(@PathVariable Integer id, Model model){
+    public String productFindId(@PathVariable Integer id, Model model){
         ProductDTO productDTO = productService.findById(id);
         model.addAttribute("products", productDTO);
         return "products/productDetail";
