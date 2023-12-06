@@ -70,7 +70,7 @@
                     <div class="column s-6" style="text-align: center">
                         <div id="imagePreview">
                             <label class="inputGroup" style="display: inline-block">
-                                이미지<input type="text" name="image_path" th:field="${products.image_path}">
+                                이미지<input type="hidden" name="image_path" th:field="${products.image_path}">
                                 <img alt="" th:src="${products.image_path}" width="220" style="text-align: left"><br>
                             </label>
                         </div>
