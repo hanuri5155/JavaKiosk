@@ -48,30 +48,25 @@
                     <div class="column s-6">
                         <label class="inputGroup">
                             <span>제품 번호</span>
-                            <span><input name="product_id" type="text" th:value="${products.product_id}" readonly></span>
+                            <span><input name="product_id" type="text" th:field="${products.product_id}" readonly></span>
                         </label>
                         <label class="inputGroup">
                             <span>이름</span>
-                            <span><input name="name" type="text" th:value="${products.name}"></span>
+                            <span><input name="name" type="text" th:field="${products.name}"></span>
                         </label>
                         <label class="inputGroup">
                             <span>가격</span>
-                            <span><input name="price" type="text" th:value="${products.price}"></span>
+                            <span><input name="price" type="text" th:field="${products.price}"></span>
                         </label>
-                        <div class="dropdown">
-                            <label class="inputGroup">
-                                <span>판매 가능 여부</span>
-                                <span class="cell cell-100 text-center">
-                                    <input type="hidden" th:value="${products.is_orderable}" name="is_orderable">
-                                    <input class="btnSwitch status" name="status" type="checkbox" th:checked="${products.is_orderable}">
-                                </span>
-                            </label>
-                        </div>
+                        <label class="inputGroup">
+                            <input type="checkbox" th:field="*{products.is_orderable}" id="is_orderable">
+                            <label for="is_orderable">판매 가능 여부</label>
+                        </label>
                     </div>
                     <div class="column s-6" style="text-align: center">
                         <div id="imagePreview">
                             <label class="inputGroup" style="display: inline-block">
-                                <input type="hidden" name="image_path" th:value="${products.image_path}">
+                                <input type="hidden" name="image_path" th:field="${products.image_path}">
                                 <img alt="" th:src="${products.image_path}" width="220" style="text-align: left"><br>
                             </label>
                         </div>
