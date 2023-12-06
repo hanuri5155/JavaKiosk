@@ -14,6 +14,12 @@ import java.util.Optional;
 public class ProductService { // 제품 목록을 DB 에서 불러와주는 클래스
     private final ProductRepository productRepository;
 
+    public ProductDTO getRandomProduct() {
+        Product product = productRepository.findRandomProduct();
+
+        return ProductDTO.toDTO(product);
+    }
+
     public List<ProductDTO> findAll() { // 모든 항목 조회
         List<Product> productEntityList = productRepository.findAll();
         List<ProductDTO> productDTOList = new ArrayList<>();
